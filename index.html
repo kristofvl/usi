@@ -14,12 +14,17 @@
 
 <script type="text/javascript">
   // load bibtext entries:
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    var textArea = document.getElementById("bibtex_input");
-    textArea.value = e.target.result;
-  };
-  reader.readAsText("bt.bib".asInstanceOf[Blob]);
+  $(document).ready(function() {
+   $("#open").click(function() {
+     $.ajax({
+       url : "bt.bib",
+       dataType: "text",
+       success : function (data) {
+           $("#text").text(data);
+       }
+     });
+   });
+  }); 
   // display:
   $(document).ready(function(){var dv = document.createElement("div");dv.id ='bibtex_display';document.getElementById('bibct').appendChild(dv);});
 </script>
