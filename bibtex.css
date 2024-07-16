@@ -1,53 +1,52 @@
 
-#col3_editablecontent a.abs {
+#bt a.abs {
 position:relative;
 z-index:0; 
 color:#066600;
 border-bottom-width:0px;  
 }
-#col3_editablecontent a.title {
+#bt a.title {
 border-bottom-width:0px;
 }
-#col3_editablecontent a.booktitle {
+#bt a.booktitle {
 border-bottom-width:0px;
 }
-#col3_editablecontent a.journal {
+#bt a.journal {
 border-bottom-width:0px;
 }
-#col3_editablecontent a.pdf {
+#bt a.pdf {
 border-bottom-width:0px;
 }
-#col3_editablecontent a.scholar {
+#bt a.scholar {
 border-bottom-width:0px;
 }
-#col3_editablecontent a.bibtex {
-border-bottom-width:0px;
+#bt a.bibtex {
+ border-bottom-width:0px;
 }
-#col3_editablecontent a.abs .ttip {
-     display: none;
-     float:left;
+#bt a.abs .ttip {
+ display: none;
+ float:left;
 }
-#col3_editablecontent a.abs:hover{
-     z-index:1; 
-     background-color:#ffffff;
- }
-#col3_editablecontent a.abs:hover .ttip {  
-     display:block;
-     position:absolute;
-     top:20px; 
-     //left:40px; 
-     width:580px;
-     border:7px double #067A6A;
-     background-color:#ffffff; 
-     color:#000000;
-     font-size:12px;
-     font-style:normal;
-     padding:14px;
-     padding-left:27px;
-     padding-right:27px;
-     text-align:justify;
- }
-#col3_editablecontent p.bib_entry {
+#bt a.abs:hover{
+ z-index:1; 
+ background-color:#ffffff;
+}
+#bt a.abs:hover .ttip {  
+ display:block;
+ position:absolute;
+ top:20px; 
+ width:580px;
+ border:7px double #067A6A;
+ background-color:#ffffff; 
+ color:#000000;
+ font-size:12px;
+ font-style:normal;
+ padding:14px;
+ padding-left:27px;
+ padding-right:27px;
+ text-align:justify;
+}
+#bt p.bib_entry {
 	line-height:1.4em;
 	text-align:justify;
 }
