@@ -3,16 +3,17 @@
  <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
  <script src="bibtexparser.js" type="text/javascript"></script>
  <link rel="stylesheet" href="bibtex.css"></head>
-<body>
-  
-<h1>Test</h1>
-
+<body onresize="draw_header(true)">
+<div id="usi_header">
+  <img src="unis.svg" width="250" style="z-index:9; position:absolute; top:30"></img>
+  <img src="logo.svg" width="250" style="z-index:1; position:absolute; top:50; right:10;"></img>
+</div>
+ 
 <div id="bt">
   <textarea id="bibtex_input" style="display:none;">
   </textarea>
-
-<div id="bibtex_template"></div>
-<div id="bibct"></div>
+  <div id="bibtex_template"></div>
+  <div id="bibct"></div>
 </div>
 
 <script type="text/javascript">
@@ -28,5 +29,34 @@
       }
     });
   });
+  function draw_header(redraw) {
+		 var win = window,
+			doc = document,
+			docElem = doc.documentElement,
+			body = doc.getElementsByTagName("body")[0],
+			x_size = win.innerWidth || docElem.clientWidth || body.clientWidth,
+			y_size = win.innerHeight || docElem.clientHeight || body.clientHeight;
+		if (!redraw) {
+			var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			svg.setAttribute("z-index", 5);
+			svg.setAttribute("width", x_size);
+			svg.setAttribute("height", 125);
+			var x = [0, 240, 300, 0],
+				w = 245, rightW = 270,
+				c = [ "#0d3f00", "#0d5f30", "#0e7f50", "#0e9f60", "#0ebf70", "#0fdf90", "#0fefaf", "#ffffff" ];
+			for (p = 0; p < 8; p++) {
+				var poly = doc.createElementNS("http://www.w3.org/2000/svg","polygon","p"+p);
+				poly.setAttribute("fill", c[p]);
+				poly.setAttribute("points", x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125" );
+				if (x[3] == 0) x[3] = 60;
+				if (x[3] + rightW < x_size) for (i = 0; i < 4; i++) x[i] += w;
+				w = Math.floor( (x_size - rightW - 300) / 6 );
+				svg.appendChild(poly);
+				console.log(x[3] + " " + x_size);
+			}
+			doc.body.appendChild(svg);
+		}
+  }
+  draw_header(false);
 </script>
 </body>
