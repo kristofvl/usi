@@ -47,8 +47,19 @@
   <div id="bibtex_template"></div>
   <div id="bibct"></div>
 </div>
-<script>
-  bibtex_js_draw()
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.ajax({
+      url : "https://kristofvl.github.io/usi/bt.bib",
+      dataType: "text",
+      success : function (data) {
+        $("#bibtex_input").text( data );
+        var dv = document.createElement("div");
+        dv.id ='bibtex_display';document.getElementById('bibct').appendChild(dv);
+        bibtex_js_draw();    
+      }
+    });
+  });
 </script>
 
 </body>
