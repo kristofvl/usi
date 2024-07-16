@@ -1,3 +1,31 @@
 <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script src="bibtexparser.js"></script>
 <h1>Test</h1>
+
+<p>
+  <textarea id="bibtex_input" style="display:none;">
+@y{y1999,y={1999}}
+@inproceedings {sl_huc1999,
+        title = {Advanced Interaction in Context},
+        booktitle = {The First International Symposium on Handheld and Ubiquitous Computing (HUC'99)},
+    publisher = {Springer Verlag},
+    month = {9},
+        year = {1999},
+        pages = {89-101},
+        address = {Karlsruhe, Germany},
+        abstract = {Mobile information appliances are increasingly used in numerous different situations and locations, setting new requirements to their interaction methods. When the user{\textquoteright}s situation, place or activity changes, the functionality of the device should adapt to these changes. In this work we propose a layered real-time architecture for this kind of context-aware adaptation based on redundant collections of low-level sensors. Two kinds of sensors are distinguished: physical and logical sensors, which give cues from environment parameters and host information. A prototype board that consists of eight sensors was built for experimentation. The contexts are derived from cues using real-time recognition software, which was constructed after experiments with Kohonen{\textquoteright}s Self-Organizing Maps and its variants. A personal digital assistant (PDA) and a mobile phone were used with the prototype to demonstrate situational awareness. On the PDA font size and backlight were changed depending on the demonstrated contexts while in mobile phone the active user profile was changed. The experiments have shown that it is feasible to recognize contexts using sensors and that context information can be used to create new interaction metaphors.},
+        isbn = {3-540-66550-1},
+        doi = {10.1007/3-540-48157-5_10},
+        bookurl={\url{http://dl.acm.org/citation.cfm?id=647985}},
+        author = {Schmidt, Albrecht and Kofi A Aidoo and Antti Takaluoma and Urpo Tuomela and Van Laerhoven, Kristof and Walter Van de Velde}
+}
+  </textarea>
+</p>
+
+<div id="bibtex_template"></div>
+<div id="bibct"></div>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){var dv = document.createElement("div");dv.id ='bibtex_display';document.getElementById('bibct').appendChild(dv);});
+//]]>
+</script>
+<script src="bibtexparser.js" type="text/javascript"></script>
