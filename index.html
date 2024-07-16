@@ -14,9 +14,16 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#bibtex_input").load( "bt.bib" );
-    var dv = document.createElement("div");
-    dv.id ='bibtex_display';document.getElementById('bibct').appendChild(dv);});
+    $.ajax({
+      url : "https://kristofvl.github.io/usi/bt.bib",
+      dataType: "text",
+      success : function (data) {
+        $("#bibtex_input").text( data );
+        var dv = document.createElement("div");
+        dv.id ='bibtex_display';document.getElementById('bibct').appendChild(dv);
+        bibtex_js_draw();
+      }
+    });
+  });    
 </script>
-<script src="bibtexparser.js" type="text/javascript"></script>
-</body>
+</body>  
