@@ -19,15 +19,16 @@
       svg.setAttribute("height", 125);
       var x = [0, 240, 300, 0],
         w = 245, rightW = 280,
-        c = [ "#0d3f00", "#0d5f30", "#0e7f50", "#0e9f60", "#0ebf70", "#0fdf90", "#0fefaf", "#ffffff" ];
-      for (p = 0; p < 8; p++) {
+        c = [ "#0d3f00", "#0d4f30", "#0e5f50", "#0e6f60", "#0e7f70", "#0f8f80", "#0f9f90", "#0faea0", "#0fbfb0",  "#0fcec0", "#0fdfd0", "#ffffff" ],
+        maxP = c.length;
+      for (p = 0; p < maxP; p++) {
         var poly = doc.createElementNS("http://www.w3.org/2000/svg","polygon");
         poly.setAttribute("fill", c[p]);
         poly.setAttribute("points", x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125" );
-        if (x[3] == 0) x[3] = 60;
+        if (p == 0) x[3] = 60;
         for (i = 0; i < 4; i++) x[i] += w;
-        if (p==7) { x[1] = x[2] = x_size; console.log("end");}
-        if (p==0) w = Math.floor( (x_size - rightW - 300) / 6 );
+        if (p==maxP-2) { x[1] = x[2] = x_size; console.log("end");}
+        if (p==0) { w = Math.floor( (x_size - rightW - 300) / (maxP-2) ); x[1] = x[0]+w; x[2]=x[3]+w;}
         svg.appendChild(poly);
       }
       doc.body.appendChild(svg);
@@ -42,7 +43,7 @@
 </div>
 
 <div class="usi_page">
- 
+
 <div id="bt">
   <textarea id="bibtex_input" style="display:none;">
   </textarea>
@@ -58,7 +59,7 @@
         $("#bibtex_input").text( data );
         var dv = document.createElement("div");
         dv.id ='bibtex_display';document.getElementById('bibct').appendChild(dv);
-        bibtex_js_draw();    
+        bibtex_js_draw();
       }
     });
   });
