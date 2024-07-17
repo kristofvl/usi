@@ -6,38 +6,39 @@
 <body onresize="draw_header(true)">
 	<script>
   function draw_header(redraw) {
-			var win = window,
-				doc = document,
-				docElem = doc.documentElement,
-				body = doc.getElementsByTagName("body")[0],
-				x_size = win.innerWidth || docElem.clientWidth || body.clientWidth,
-				y_size = win.innerHeight || docElem.clientHeight || body.clientHeight;
-			if (!redraw) {
-				var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-				svg.setAttribute("z-index", 5);
-				svg.setAttribute("width", x_size);
-				svg.setAttribute("height", 125);
-				var x = [0, 240, 300, 0],
-					w = 245, rightW = 280,
-					c = [ "#0d3f00", "#0d5f30", "#0e7f50", "#0e9f60", "#0ebf70", "#0fdf90", "#0fefaf", "#ffffff" ];
-				for (p = 0; p < 8; p++) {
-					var poly = doc.createElementNS("http://www.w3.org/2000/svg","polygon","p"+p);
-					poly.setAttribute("fill", c[p]);
-					poly.setAttribute("points", x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125" );
-					if (x[3] == 0) x[3] = 60;
-					if (x[3] + rightW < x_size) for (i = 0; i < 4; i++) x[i] += w;
-					w = Math.floor( (x_size - rightW - 300) / 6 );
-					svg.appendChild(poly);
-				}
-				doc.body.appendChild(svg);
-			}
+    var win = window,
+      doc = document,
+      docElem = doc.documentElement,
+      body = doc.getElementsByTagName("body")[0],
+      x_size = win.innerWidth || docElem.clientWidth || body.clientWidth,
+      y_size = win.innerHeight || docElem.clientHeight || body.clientHeight;
+    if (!redraw) {
+      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("z-index", 5);
+      svg.setAttribute("width", x_size);
+      svg.setAttribute("height", 125);
+      var x = [0, 240, 300, 0],
+        w = 245, rightW = 280,
+        c = [ "#0d3f00", "#0d5f30", "#0e7f50", "#0e9f60", "#0ebf70", "#0fdf90", "#0fefaf", "#ffffff" ];
+      for (p = 0; p < 8; p++) {
+        var poly = doc.createElementNS("http://www.w3.org/2000/svg","polygon","p"+p);
+        poly.setAttribute("fill", c[p]);
+        poly.setAttribute("points", x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125" );
+        if (x[3] == 0) x[3] = 60;
+        if (x[3] + rightW < x_size) for (i = 0; i < 4; i++) x[i] += w;
+        else { x[2] = x[3] = x_size; }
+        w = Math.floor( (x_size - rightW - 300) / 6 );
+        svg.appendChild(poly);
+      }
+      doc.body.appendChild(svg);
+    }
   }
   draw_header(false);
 </script>
 
 <div id="usi_header">
   <img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img>
-  <img src="logo.svg" width="250" style="z-index:1; position:absolute; top:50px; right:10px;"></img>
+  <img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img>
 </div>
 
 <div class="usi_page">
