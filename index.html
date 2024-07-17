@@ -26,8 +26,8 @@
         poly.setAttribute("points", x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125" );
         if (x[3] == 0) x[3] = 60;
         for (i = 0; i < 4; i++) x[i] += w;
-        if (p==7) { x[1] = x[2] = x_size; }
-        w = Math.floor( (x_size - rightW - 300) / 6 );
+        if (p==7) { x[1] = x[2] = x_size; console.log("end");}
+        if (p==0) w = Math.floor( (x_size - rightW - 300) / 6 );
         svg.appendChild(poly);
       }
       doc.body.appendChild(svg);
