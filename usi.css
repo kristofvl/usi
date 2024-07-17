@@ -1,20 +1,21 @@
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Open Sans", Sans-Serif !important;
+  font-family: "Open Sans", Sans-Serif !important;
 }
 
 .usi_page {
-    display: block;
-    background-color: #e6f9ff;
-    overflow-y: scroll;
-    max-height: 100vh;
+  display: block;
+  background-color: #e6f9ff;
+  overflow-y: scroll;
+  max-height: 100vh;
+  padding: 7px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
