@@ -9,10 +9,11 @@ body {
 }
 
 .usi_page {
-  display: block;
+  display: flex;
   background-color: #e6f9ff;
   padding: 7px;
-  max-width: 900px;
+  max-width: 1200px;
+  height: 100%;
 }
 
 a {
