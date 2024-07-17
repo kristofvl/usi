@@ -17,6 +17,10 @@ body {
   height: 100%;
 }
 
+#usi_header {
+  position:absolute;top:8px;height:125px;width:100%;
+}
+
 a {
   text-decoration: none;
 }
