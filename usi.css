@@ -6,14 +6,16 @@
 
 body {
   font-family: "Open Sans", Sans-Serif !important;
+  height:100%;
+  display:flex;
 }
 
 .usi_page {
   display: block;
   background-color: #e6f9ff;
-  overflow-y: scroll;
-  max-height: 100vh;
+  flex: 1;
   padding: 7px;
+  max-width: 900px;
 }
 
 a {
