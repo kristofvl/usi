@@ -25,8 +25,8 @@
         poly.setAttribute("fill", c[p]);
         poly.setAttribute("points", x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125" );
         if (x[3] == 0) x[3] = 60;
-        if (x[3] + rightW < x_size) for (i = 0; i < 4; i++) x[i] += w;
-        else { x[1] = x[2] = x_size; }
+        for (i = 0; i < 4; i++) x[i] += w;
+        if (p==8) { x[1] = x[2] = x_size; }
         w = Math.floor( (x_size - rightW - 300) / 6 );
         svg.appendChild(poly);
       }
