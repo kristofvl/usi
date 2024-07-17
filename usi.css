@@ -12,6 +12,7 @@ body {
 .usi_page {
     display: block;
     background-color: #e6f9ff;
+    overflow-y: scroll
 }
 
 a {
