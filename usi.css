@@ -12,7 +12,8 @@ body {
 .usi_page {
     display: block;
     background-color: #e6f9ff;
-    overflow-y: scroll
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 
 a {
