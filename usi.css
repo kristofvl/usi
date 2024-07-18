@@ -34,10 +34,10 @@ body {
 	position: absolute;
 	background-color: #0d3f00;
 	margin-top: 2px;
-	-webkit-transition: left .4s ease;
-	transition: left .4s ease;
+	-webkit-transition: left 0.4s ease;
+	transition: left 0.4s ease;
 	color: #ffffff;
-	left: 100%;
+	left: 90%;
 	padding-left: 17px;
 	font-size: 14pt;
 	font-weight: 700;
