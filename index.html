@@ -7,11 +7,11 @@
 	<script>
   </script>
 
-<div id="usi_header">
-  <img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img>
-  <img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img>
-</div>
 <div style="width:100%;height:125px;background-color: #ffffff;">
+  <div id="usi_header">
+   <img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img>
+   <img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img>
+  </div>
 </div>
 <div id="bar" style="width:100%;height:21px;background-color: #ffffff;">
   <div id="left-right">Publications</div>
@@ -28,8 +28,11 @@
 
 <script type="text/javascript">
   setTimeout(function(){
-    document.getElementById('left-right').style.left = '0px';
+    document.getElementById('usi_header').style.top = '8px';
   }, 400);
+  setTimeout(function(){
+    document.getElementById('left-right').style.left = '0px';
+  }, 700);
   $(document).ready(function(){
     $.ajax({
       url : "https://kristofvl.github.io/usi/bt.bib",
