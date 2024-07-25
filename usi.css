@@ -29,6 +29,7 @@ body {
     top: -125px;
     left: -47px; 
     height: 125px;
+    max-width: 1200px;
     width: 100%;
 }
 
