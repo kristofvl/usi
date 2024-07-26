@@ -20,7 +20,12 @@ body {
     padding-left: 17px;
     padding-right: 17px;
     overflow: auto;
-    max-height: 84vh;
+    max-height: -o-calc(100vh - 154px);
+    /* opera */
+    max-height: -webkit-calc(100vh - 154px);
+    /* google, safari */
+    max-height: -moz-calc(100vh - 154px);
+    /* firefox */
     overflow-y: scroll;
 }
 
