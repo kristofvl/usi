@@ -10,12 +10,12 @@ body {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 8px;
+    height: 100%;
     max-width: 1200px;
     overflow: hidden;
 }
 
 .usi_page {
-    display: flex;
     background-color: #e6f9ff;
     padding: 7px;
     padding-left: 17px;
