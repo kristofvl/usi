@@ -21,6 +21,7 @@ body {
     padding-left: 17px;
     padding-right: 17px;
     overflow: auto;
+    max-height: calc(100vh - 157px);
     max-height: -o-calc(100vh - 157px);
     /* opera */
     max-height: -webkit-calc(100vh - 157px);
