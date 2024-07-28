@@ -88,15 +88,15 @@ p {
 .menu {
 	display: none;
 	position: absolute;
-	background-color: #f1f1f1;
+	background: rgba(9, 53, 0, 0.87);
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 17;
 }
 
 .menu a {
-	color: black;
-	padding: 12px 16px;
+	color: #ffffff;
+	padding: 12px 17px;
 	text-decoration: none;
 	display: block;
 	font-size: 12pt;
@@ -104,15 +104,11 @@ p {
 }
 
 .menu a:hover {
-	background-color: #ddd;
+	background: rgba(200, 200, 200, 0.7);
 }
 
 #bar:hover .menu {
 	display: block;
-}
-
-#bar:hover {
-	background-color: #3e8e41;
 }
 
 .ham-menu {
