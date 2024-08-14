@@ -68,6 +68,7 @@ function draw_header(redraw) {
         x[1] = x[0] + w;
         x[2] = x[3] + w;
       }
+      if (p > 0) poly.setAttribute("opacity", 0.77);
       svg.appendChild(poly);
     }
     hdr.appendChild(svg);
