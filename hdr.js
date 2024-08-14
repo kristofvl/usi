@@ -1,20 +1,26 @@
-let Header =
-  `<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
+let Header = `<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
  <a href="index.html"><img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img></a>
- </div><div id="bar"><div id="left-right"><span class="ham-menu"></span>
- UbiComp &#x2192; ` +
-  document.currentScript.getAttribute("strng") +
-  `</div></div><div class="menu">
-			<a href="#">Team</a>
-			<a href="#">Teaching</a>
-			<a href="pubs.html">Publications</a>
-			<a href="#">Research</a>
-			<a href="#">Datasets</a>
-			<a href="#">Videos</a>
-			<a href="#">Contact</a>
-		</div>`;
+ </div>`;
 
 document.getElementById("hdr").innerHTML = Header;
+var bar = document.createElement("div");
+bar.setAttribute("id", "bar");
+bar.innerHTML =
+  `<div id="left-right"><a href="index.html"><span class="ham-menu"></span>
+ UbiComp </a> &#x2192; ` +
+  document.currentScript.getAttribute("strng") +
+  `</div></div><div id="menu">
+      <a href="#">Team</a>
+      <a href="#">Teaching</a>
+      <a href="pubs.html">Publications</a>
+      <a href="#">Research</a>
+      <a href="#">Datasets</a>
+      <a href="#">Videos</a>
+      <a href="#">Contact</a>
+    </div>`;
+document
+  .getElementById("hdr")
+  .parentNode.insertBefore(bar, document.getElementById("hdr").nextSibling);
 
 function draw_header(redraw) {
   var win = window,
@@ -51,6 +57,7 @@ function draw_header(redraw) {
     for (p = 0; p < maxP; p++) {
       var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon");
       poly.setAttribute("fill", c[p]);
+      poly.setAttribute("id", "poly" + p);
       poly.setAttribute(
         "points",
         x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125",
@@ -65,7 +72,7 @@ function draw_header(redraw) {
         x[1] = x[0] + w;
         x[2] = x[3] + w;
       }
-      if (p > 0) poly.setAttribute("opacity", 0.77);
+      if (p > 0) poly.setAttribute("opacity", 1);
       svg.appendChild(poly);
     }
     var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon");
@@ -77,9 +84,19 @@ function draw_header(redraw) {
 }
 draw_header(false);
 setTimeout(function () {
-  document.getElementById("usi_header").style.top = "8px";
+  document.getElementById("usi_header").style.top = "0px";
   document.getElementById("usi_header").style.left = "0px";
+  document.getElementById("usi_header").style.opacity = "1";
+  for (p = 1; p < 12; p++)
+    document.getElementById("poly" + p).style.opacity = ".95";
 }, 400);
 setTimeout(function () {
   document.getElementById("left-right").style.left = "0px";
+  document.getElementById("left-right").style.opacity = "1";
+  for (p = 1; p < 12; p++)
+    document.getElementById("poly" + p).style.opacity = ".8";
 }, 700);
+setTimeout(function () {
+  for (p = 1; p < 12; p++)
+    document.getElementById("poly" + p).style.opacity = ".7";
+}, 999);
