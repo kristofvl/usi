@@ -110,7 +110,7 @@ p {
     background: rgba(200, 200, 200, 0.7);
 }
 
-#bar:hover .menu {
+#hdr:hover .menu {
     display: block;
 }
 
