@@ -43,6 +43,8 @@ body {
     height: 125px;
     width: 100%;
     max-width: 1200px;
+    background-image: url("header.jpg");
+    background-position: right;
 }
 
 #hdr {
