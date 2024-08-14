@@ -1,20 +1,17 @@
 let Header =
-  `<div id="usi_header">
- <a href="https://www.uni-siegen.de"><img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
- <a href="https://ubicomp.eti.uni-siegen.de"><img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img></a>
+  `<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
+ <a href="index.html"><img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img></a>
  </div><div id="bar"><div id="left-right"><span class="ham-menu"></span>
- <a href="index.html" style="color: white">UbiComp</a> &#x2192; ` +
+ UbiComp &#x2192; ` +
   document.currentScript.getAttribute("strng") +
-  `</div>
-			<div class="menu">
-				<a href="#">Team</a>
-				<a href="#">Teaching</a>
-				<a href="pubs.html">Publications</a>
-				<a href="#">Research</a>
-				<a href="#">Datasets</a>
-				<a href="#">Videos</a>
-				<a href="#">Contact</a>
-			</div>
+  `</div></div><div class="menu">
+			<a href="#">Team</a>
+			<a href="#">Teaching</a>
+			<a href="pubs.html">Publications</a>
+			<a href="#">Research</a>
+			<a href="#">Datasets</a>
+			<a href="#">Videos</a>
+			<a href="#">Contact</a>
 		</div>`;
 
 document.getElementById("hdr").innerHTML = Header;
