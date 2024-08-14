@@ -71,6 +71,10 @@ function draw_header(redraw) {
       if (p > 0) poly.setAttribute("opacity", 0.77);
       svg.appendChild(poly);
     }
+    var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    poly.setAttribute("fill", "white");
+    poly.setAttribute("points", "240,0  245,0  305,125  300,125");
+    svg.appendChild(poly);
     hdr.appendChild(svg);
   }
 }
