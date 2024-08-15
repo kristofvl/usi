@@ -87,16 +87,21 @@ setTimeout(function () {
   document.getElementById("usi_header").style.top = "0px";
   document.getElementById("usi_header").style.left = "0px";
   document.getElementById("usi_header").style.opacity = "1";
-  for (p = 1; p < 12; p++)
-    document.getElementById("poly" + p).style.opacity = ".95";
 }, 400);
 setTimeout(function () {
   document.getElementById("left-right").style.left = "0px";
   document.getElementById("left-right").style.opacity = "1";
-  for (p = 1; p < 12; p++)
-    document.getElementById("poly" + p).style.opacity = ".8";
-}, 700);
-setTimeout(function () {
-  for (p = 1; p < 12; p++)
-    document.getElementById("poly" + p).style.opacity = ".7";
-}, 999);
+  for (p = 1; p < 11; p++)
+    document.getElementById("poly" + p).style.fillOpacity = "0.7";
+  document.getElementById("poly11").style.fillOpacity = "0.77";
+}, 790);
+setInterval(function () {
+  if (document.getElementById("poly11").style.fillOpacity != "1")
+    for (p = 1; p < 12; p++)
+      document.getElementById("poly" + p).style.fillOpacity = "1";
+  else {
+    for (p = 1; p < 11; p++)
+      document.getElementById("poly" + p).style.fillOpacity = "0.7";
+    document.getElementById("poly11").style.fillOpacity = "0.77";
+  }
+}, 6000);
