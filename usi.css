@@ -48,6 +48,11 @@ body {
     transform: scale(1.03);
 }
 
+polygon {
+    -webkit-transition: fill-opacity 4s;
+    transition: fill-opacity 4s;
+}
+
 #hdr {
     margin-top: 8px;
     width: 100%;
