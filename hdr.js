@@ -1,23 +1,28 @@
 let Header = `<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
  <a href="index.html"><img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img></a>
  </div>`;
-
+let menuItems = [
+  ["team", "Team"],
+  ["teach", "Teaching"],
+  ["pubs", "Publications"],
+  ["res", "Research"],
+  ["data", "Datasets"],
+  ["vids", "Videos"],
+  ["cont", "Contact"],
+];
 document.getElementById("hdr").innerHTML = Header;
 var bar = document.createElement("div");
 bar.setAttribute("id", "bar");
-bar.innerHTML =
+let inhtml =
   `<div style="overflow:hidden;"><div id="left-right"><a href="index.html"><span class="ham-menu"></span>
  UbiComp </a> &#x2192; ` +
   document.currentScript.getAttribute("strng") +
-  `</div></div></div><div id="menu">
-      <a href="#">Team</a>
-      <a href="#">Teaching</a>
-      <a href="pubs.html">Publications</a>
-      <a href="#">Research</a>
-      <a href="#">Datasets</a>
-      <a href="#">Videos</a>
-      <a href="#">Contact</a>
-    </div>`;
+  `</div></div></div><div id="menu">`;
+for (var i = 0; i < menuItems.length; i++)
+  inhtml +=
+    `<a href="` + menuItems[i][0] + `.html">` + menuItems[i][1] + `</a>`;
+inhtml += `</div >`;
+bar.innerHTML = inhtml;
 document
   .getElementById("hdr")
   .parentNode.insertBefore(bar, document.getElementById("hdr").nextSibling);
