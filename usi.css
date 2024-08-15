@@ -204,3 +204,8 @@ p {
     min-width: 400px;
     min-height: 300px;
 }
+
+#map {
+    min-height: calc(100vh - 200px);
+    z-index: 1;
+}
