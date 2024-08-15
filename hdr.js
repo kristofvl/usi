@@ -6,10 +6,10 @@ document.getElementById("hdr").innerHTML = Header;
 var bar = document.createElement("div");
 bar.setAttribute("id", "bar");
 bar.innerHTML =
-  `<div id="left-right"><a href="index.html"><span class="ham-menu"></span>
+  `<div style="overflow:hidden;"><div id="left-right"><a href="index.html"><span class="ham-menu"></span>
  UbiComp </a> &#x2192; ` +
   document.currentScript.getAttribute("strng") +
-  `</div></div><div id="menu">
+  `</div></div></div><div id="menu">
       <a href="#">Team</a>
       <a href="#">Teaching</a>
       <a href="pubs.html">Publications</a>
