@@ -1,4 +1,4 @@
 # usi
-Minimal research website:
+Minimal research group website:
 [https://kristofvl.github.io/usi]
 
