@@ -1,5 +1,5 @@
-let Header = `<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
- <a href="index.html"><img src="logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img></a>
+let Header = `<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="img/unis.svg" width="250" style="z-index:9; position:relative; top:30px"></img></a>
+ <a href="index.html"><img src="img/logo.svg" width="250" style="z-index:1; position:absolute; top:47px; right:10px;"></img></a>
  </div>`;
 let menuItems = [
   ["team", "Team"],

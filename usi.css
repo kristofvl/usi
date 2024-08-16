@@ -21,10 +21,10 @@ body {
     background-color: #e6f9ff;
     padding: 7px 17px;
     overflow: auto;
-    max-height: calc(100vh - 157px);
-    max-height: -o-calc(100vh - 157px);
-    max-height: -webkit-calc(100vh - 157px);
-    max-height: -moz-calc(100vh - 157px);
+    height: calc(100vh - 175px);
+    height: -o-calc(100vh - 175px);
+    height: -webkit-calc(100vh - 175px);
+    height: -moz-calc(100vh - 175px);
     overflow-y: scroll;
     position: relative;
 }
@@ -39,7 +39,7 @@ body {
     height: 125px;
     width: 100%;
     max-width: 1200px;
-    background-image: url("header.jpg");
+    background-image: url("img/header.jpg");
     background-position: right;
     opacity: 0;
 }
@@ -208,4 +208,35 @@ p {
 #map {
     min-height: calc(100vh - 200px);
     z-index: 1;
+}
+
+.researchitem {
+    padding: 7px;
+    margin: 3px;
+    display: table;
+    background-color: white;
+    border-color: #0d3f00;
+    border-width: 2px;
+    border-style: inset;
+}
+.researchpic {
+    width: 120px;
+    display: block;
+    overflow: hidden;
+}
+.researchpic img {
+    max-height: 99px;
+}
+.researchentry {
+    display: table-cell;
+    padding-left: 20px;
+    vertical-align: top;
+    min-width: 400px;
+}
+.researchentry h3 {
+    display: block;
+    font-size: 120%;
+    color: #00365e;
+    font-weight: normal;
+    margin: 0;
 }
