@@ -1,7 +1,9 @@
 let imgwidth = "250px",
 	i1adj = "30px",
-	i2adj = "47px"; // defaults for non-mobile
-if (document.documentElement.clientWidth < 600) {
+	i2adj = "47px",
+	isMobile = false; // defaults for non-mobile
+if (document.documentElement.clientWidth < 600) isMobile = true;
+if (isMobile) {
 	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px");
 }
 let Header =
@@ -56,9 +58,9 @@ function draw_header(redraw) {
 		svg.setAttribute("width", x_size);
 		svg.setAttribute("height", 125);
 		svg.setAttribute("style", "position:absolute;left:0px");
-		var x = [0, 240, 300, 0],
-			w = 245,
-			rightW = 257,
+		var x = [0, isMobile ? 130 : 240, isMobile ? 190 : 300, 0],
+			w = isMobile ? 135 : 245,
+			rightW = isMobile ? 147 : 257,
 			c = [
 				"#0d3f00",
 				"#0d4f30",
@@ -88,7 +90,7 @@ function draw_header(redraw) {
 				x[1] = x[2] = x_size;
 			}
 			if (p == 0) {
-				w = Math.floor((x_size - rightW - 300) / (maxP - 2));
+				w = Math.floor((x_size - rightW - (isMobile ? 170 : 300)) / (maxP - 2));
 				x[1] = x[0] + w;
 				x[2] = x[3] + w;
 			}
@@ -97,11 +99,12 @@ function draw_header(redraw) {
 		}
 		var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		poly.setAttribute("fill", "white");
-		poly.setAttribute("points", "240,0  245,0  305,125  300,125");
+		if (isMobile) poly.setAttribute("points", "130,0  135,0  195,125  190,125");
+		else poly.setAttribute("points", "240,0  245,0  305,125  300,125");
 		svg.appendChild(poly);
 		hdr.appendChild(svg);
 		// redo scaling for mobile devices:
-		if (document.documentElement.clientWidth < 600) {
+		if (isMobile) {
 			document.getElementById("usi_header").style.height = "47px";
 			svg.setAttribute("height", "47px");
 		} else {
