@@ -90,7 +90,7 @@ function draw_header(redraw) {
 				x[1] = x[2] = x_size;
 			}
 			if (p == 0) {
-				w = Math.floor((x_size - rightW - (isMobile ? 170 : 300)) / (maxP - 2));
+				w = Math.floor((x_size - rightW - (isMobile ? 157 : 300)) / (maxP - 2));
 				x[1] = x[0] + w;
 				x[2] = x[3] + w;
 			}
