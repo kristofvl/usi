@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 }
 
+html,
 body {
 	font-family: "Open Sans", Sans-Serif !important;
 	margin-top: 8px;
@@ -27,6 +28,15 @@ body {
 	height: -moz-calc(100vh - 175px);
 	overflow-y: scroll;
 	position: relative;
+}
+@media only screen and (max-width: 600px) {
+	#usi_page {
+		padding: 4px 0px;
+		height: calc(100vh - 90px);
+		height: -o-calc(100vh - 90px);
+		height: -webkit-calc(100vh - 90px);
+		height: -moz-calc(100vh - 90px);
+	}
 }
 
 #usi_header {
@@ -219,20 +229,24 @@ p {
 	border-width: 2px;
 	border-style: inset;
 }
+
 .lstImg {
 	width: 120px;
 	display: block;
 	overflow: hidden;
 }
+
 .lstImg img {
 	max-height: 99px;
 }
+
 .lstEntry {
 	display: table-cell;
 	padding-left: 20px;
 	vertical-align: top;
-	min-width: 400px;
+	min-width: 300px;
 }
+
 .lstEntry h3 {
 	display: block;
 	font-size: 120%;
