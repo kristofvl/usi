@@ -13,6 +13,10 @@
 			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 			crossorigin=""
 		></script>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
 	</head>
 	<body>
 		<div id="hdr"></div>
@@ -30,7 +34,7 @@
 				var marker = L.marker([50.90615, 8.02839]).addTo(map);
 				marker
 					.bindPopup(
-						'<b>UbiComp Lab Siegen</b><br>Room H-A8111<br>Hoelderlinstrasse 3<br>57076 Siegen, Germany<br><a href="tel:+492717403037">📞+49(0)271-740-3037</a>',
+						'<div style="font-size:17px;"><b>UbiComp Lab Siegen</b><br>Room H-A8111<br>Hoelderlinstrasse 3<br>57076 Siegen, Germany<br><a href="tel:+492717403037">📞+49(0)271-740-3037</a><div>',
 					)
 					.openPopup();
 			</script>
