@@ -222,31 +222,31 @@ p {
 .lstItem {
 	padding: 7px;
 	margin: 3px;
-	display: table;
+	display: flex;
 	background-color: white;
 	border-color: #0d3f00;
 	border-width: 2px;
 	border-style: inset;
+	width: 100%;
 }
 
 .lstImg {
-	width: 120px;
-	display: block;
+	min-width: 120px;
+	display: inline-block;
 	overflow: hidden;
 }
 
 .lstImg img {
 	max-height: 99px;
+	max-width: 120px;
 }
 
 .lstEntry {
-	display: table-cell;
+	display: inline-flexbox;
 	padding-left: 20px;
 	vertical-align: top;
-	min-width: 240px;
 }
 .lstEntry h3 {
-	display: block;
 	font-size: 120%;
 	color: #00365e;
 	font-weight: normal;
