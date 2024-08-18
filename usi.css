@@ -220,13 +220,13 @@ p {
 }
 
 .lstItem {
-	padding: 7px;
-	margin: 3px;
+	padding: 0px;
+	margin: 0 0 4px 0;
 	display: flex;
 	background-color: white;
 	border-color: #0d3f00;
 	border-width: 2px;
-	border-style: inset;
+	border-style: solid;
 	width: 100%;
 }
 
@@ -242,13 +242,28 @@ p {
 }
 
 .lstEntry {
-	display: inline-flexbox;
+	font-size: 14px;
 	padding-left: 20px;
+	margin-bottom: 7px;
 	vertical-align: top;
+	display: block;
+	width: calc(100% - 120px);
+	width: -webkit-calc(100% - 120px);
+	width: -moz-calc(100% - 120px);
 }
 .lstEntry h3 {
-	font-size: 120%;
 	color: #00365e;
-	font-weight: normal;
 	margin: 0;
+	background-color: #0d3f00;
+	color: white;
+	height: 21px;
+	margin-left: -10px;
+	margin-bottom: 4px;
+}
+
+.lstEntry h3 a {
+	font-size: 17px;
+	color: white;
+	font-weight: 700;
+	margin-left: 10px;
 }
