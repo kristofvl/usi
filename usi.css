@@ -232,6 +232,7 @@ p {
 	width: -webkit-calc(50% - 7px);
 	width: -moz-calc(50% - 7px);
 	min-height: 170px;
+	border-radius: 2px;
 }
 @media (max-width: 900px) {
 	.lstItem {
@@ -244,13 +245,38 @@ p {
 	float: left;
 	min-width: 120px;
 	overflow: hidden;
+	position: relative;
+	z-index: 7;
 }
 
 .lstImg img {
 	max-height: 99px;
 	max-width: 120px;
-	position: relative;
-	z-index: 7;
+	-webkit-mask-image: linear-gradient(
+		45deg,
+		#000 45%,
+		rgba(0, 0, 0, 0.2) 80%,
+		#000 95%
+	);
+	mask-image: linear-gradient(
+		45deg,
+		#000 45%,
+		rgba(0, 0, 0, 0.2) 80%,
+		#000 95%
+	);
+	-webkit-mask-size: 800%;
+	mask-size: 800%;
+	-webkit-mask-position: 0;
+	mask-position: 0;
+}
+
+.lstImg img:hover {
+	transition:
+		mask-position 1s ease,
+		-webkit-mask-position 1s ease;
+	-webkit-mask-position: 120%;
+	mask-position: 120%;
+	opacity: 1;
 }
 
 .lstEntry {
