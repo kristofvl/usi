@@ -220,33 +220,45 @@ p {
 }
 
 .lstItem {
+	display: inline-block;
 	padding: 0px;
-	margin: 0 0 4px 0;
-	display: flex;
+	margin: 0 4px 4px 0px;
 	background-color: white;
 	border-color: #0d3f00;
 	border-width: 2px;
 	border-style: solid;
-	width: 100%;
+	overflow: hidden;
+	width: calc(50% - 7px);
+	width: -webkit-calc(50% - 7px);
+	width: -moz-calc(50% - 7px);
+	min-height: 170px;
+}
+@media (max-width: 900px) {
+	.lstItem {
+		width: 100%;
+		min-height: 100px;
+	}
 }
 
 .lstImg {
+	float: left;
 	min-width: 120px;
-	display: inline-block;
 	overflow: hidden;
 }
 
 .lstImg img {
 	max-height: 99px;
 	max-width: 120px;
+	position: relative;
+	z-index: 7;
 }
 
 .lstEntry {
+	float: left;
 	font-size: 14px;
 	padding-left: 20px;
 	margin-bottom: 7px;
 	vertical-align: top;
-	display: block;
 	width: calc(100% - 120px);
 	width: -webkit-calc(100% - 120px);
 	width: -moz-calc(100% - 120px);
@@ -257,13 +269,14 @@ p {
 	background-color: #0d3f00;
 	color: white;
 	height: 21px;
-	margin-left: -10px;
+	margin-left: -140px;
 	margin-bottom: 4px;
+	z-index: 2;
 }
 
 .lstEntry h3 a {
 	font-size: 17px;
 	color: white;
 	font-weight: 700;
-	margin-left: 10px;
+	margin-left: 140px;
 }
