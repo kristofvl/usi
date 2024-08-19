@@ -115,6 +115,7 @@ polygon {
 	margin-top: 3px;
 	left: 400px;
 	padding-left: 17px;
+	padding-top: 2px;
 	font-size: 14pt;
 	font-weight: 700;
 	opacity: 0;
@@ -161,7 +162,7 @@ p {
 .ham-menu {
 	display: inline-block;
 	position: relative;
-	margin: 2px;
+	margin: 3px;
 }
 
 .ham-menu,
@@ -298,8 +299,9 @@ p {
 	margin-left: -140px;
 	margin-bottom: 4px;
 	z-index: 2;
+	inline-size: 100vw;
+	overflow: hidden;
 }
-
 .lstEntry h3 a {
 	font-size: 17px;
 	color: white;
