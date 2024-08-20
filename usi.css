@@ -319,6 +319,11 @@ p {
 	width: calc(100% - 120px);
 	width: -webkit-calc(100% - 120px);
 	width: -moz-calc(100% - 120px);
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
 }
 .lstEntry h3 {
 	color: #00365e;
