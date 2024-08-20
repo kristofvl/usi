@@ -125,6 +125,11 @@ meta.name = "viewport";
 meta.content =
 	"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
 document.getElementsByTagName("head")[0].appendChild(meta);
+var fav = document.createElement("link");
+fav.rel = "shortcut icon";
+fav.type = "image/x-icon";
+fav.href = "favicon.ico";
+document.getElementsByTagName("head")[0].appendChild(fav);
 
 setTimeout(function () {
 	document.getElementById("usi_header").style.top = "0px";
