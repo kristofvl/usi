@@ -281,8 +281,8 @@ p {
 }
 
 .lstImg img {
-	max-height: 99px;
 	max-width: 120px;
+	max-height: 170px;
 	-webkit-mask-image: linear-gradient(
 		45deg,
 		#000 45%,
@@ -350,11 +350,12 @@ p {
 .lstEntry h3 a:hover {
 	animation: marquee 4s linear infinite;
 }
-@keyframes marquee {
-	0% {
-		transform: translate(0, 0);
-	}
-	100% {
-		transform: translate(calc(-100% + 300px), 0);
+	@keyframes marquee {
+		0% {
+			transform: translate(0, 0);
+		}
+		100% {
+			transform: translate(calc(-100% + 300px), 0);
+		}
 	}
 }
