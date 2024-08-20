@@ -123,6 +123,22 @@ polygon {
 
 #left-right a {
 	color: white;
+	-webkit-mask-image: linear-gradient(
+		45deg,
+		#000 45%,
+		rgba(0, 0, 0, 0.2) 80%,
+		#000 95%
+	);
+	mask-image: linear-gradient(
+		45deg,
+		#000 45%,
+		rgba(0, 0, 0, 0.2) 80%,
+		#000 95%
+	);
+	-webkit-mask-size: 800%;
+	mask-size: 800%;
+	-webkit-mask-position: 0;
+	mask-position: 0;
 }
 
 a {
@@ -135,15 +151,29 @@ p {
 
 #bar:hover #menu {
 	display: block;
+	height: 320px;
+}
+
+#bar:hover #left-right a {
+	transition:
+		mask-position 1s ease,
+		-webkit-mask-position 1s ease;
+	-webkit-mask-position: 120%;
+	mask-position: 120%;
+	opacity: 1;
 }
 
 #menu {
-	display: none;
+	display: block;
 	position: absolute;
 	background: rgba(9, 53, 0, 0.87);
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 17;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	height: 0;
+	overflow: hidden;
 }
 
 #menu a {
