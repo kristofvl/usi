@@ -119,12 +119,6 @@ draw_header(false);
 var title = document.createElement("title");
 title.innerHTML = "UbiComp, " + document.currentScript.getAttribute("strng");
 document.getElementsByTagName("head")[0].appendChild(title);
-// add favicon:
-var fav = document.createElement("link");
-fav.rel = "shortcut icon";
-fav.type = "image/x-icon";
-fav.href = "favicon.ico";
-document.getElementsByTagName("head")[0].appendChild(fav);
 
 setTimeout(function () {
 	document.getElementById("usi_header").style.top = "0px";
