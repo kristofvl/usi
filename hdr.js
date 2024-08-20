@@ -137,3 +137,10 @@ setInterval(function () {
 		document.getElementById("poly11").style.fillOpacity = "0.77";
 	}
 }, 6000);
+setTimeout(function () {
+	var elems = document.getElementsByClassName("lstEntry");
+	for (i = 0; i < elems.length; i++) {
+		elems[i].style.height = "170px";
+		elems[i].style.opacity = "1";
+	}
+}, 100);
