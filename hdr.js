@@ -8,12 +8,12 @@ if (isMobile) {
 	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px");
 }
 let Header =
-	`<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="/img/unis.svg" width="` +
+	`<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="img/unis.svg" width="` +
 	imgwidth +
 	`" style="z-index:9; position:relative; top:` +
 	i1adj +
 	`"></img></a>
- <a href="index.html"><img src="/img/logo.svg" width="` +
+ <a href="index.html"><img src="img/logo.svg" width="` +
 	imgwidth +
 	`" style="z-index:1; position:absolute; top:` +
 	i2adj +
