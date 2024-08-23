@@ -162,6 +162,9 @@ doc.getElementsByTagName("head")[0].appendChild(title);
 // menu collapse fix:
 doc.getElementById("menu").style.height = "0px";
 
+// add footer:
+doc.getElementById("usi_ftr").innerHTML = "made with the usi template by kvl";
+
 setTimeout(function () {
 	doc.getElementById("usi_header").style.top = "0px";
 	doc.getElementById("usi_header").style.left = "0px";
