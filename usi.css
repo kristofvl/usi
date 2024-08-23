@@ -18,6 +18,14 @@ body {
 	background-color: grey;
 }
 
+a {
+	text-decoration: none;
+}
+
+p {
+	font-size: 11pt;
+}
+
 #usi_page {
 	background-color: #e6f9ff;
 	padding: 7px 17px;
@@ -89,7 +97,6 @@ polygon {
 #hdr {
 	margin-top: 8px;
 	width: 100%;
-	//height: 125px;
 	background-color: #ffffff;
 	overflow: hidden;
 }
@@ -111,7 +118,7 @@ polygon {
 	background-color: #0d3f00;
 	-webkit-transition: left 0.4s ease;
 	transition: left 0.4s ease;
-	color: #ffffff;
+	color: white;
 	margin-top: 3px;
 	left: 400px;
 	padding-left: 17px;
@@ -119,10 +126,7 @@ polygon {
 	font-size: 14pt;
 	font-weight: 700;
 	opacity: 0;
-}
-
-#left-right a {
-	color: white;
+	cursor: pointer;
 	-webkit-mask-image: linear-gradient(
 		45deg,
 		#000 45%,
@@ -141,20 +145,7 @@ polygon {
 	mask-position: 0;
 }
 
-a {
-	text-decoration: none;
-}
-
-p {
-	font-size: 11pt;
-}
-
-#bar:hover #menu {
-	display: block;
-	height: 320px;
-}
-
-#bar:hover #left-right a {
+#bar:hover #left-right {
 	transition:
 		mask-position 1s ease,
 		-webkit-mask-position 1s ease;
@@ -172,12 +163,12 @@ p {
 	z-index: 17;
 	-webkit-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
-	height: 0;
+	height: "0px";
 	overflow: hidden;
 }
 
 #menu a {
-	color: #ffffff;
+	color: white;
 	padding: 12px 17px;
 	text-decoration: none;
 	display: block;

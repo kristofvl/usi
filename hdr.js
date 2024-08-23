@@ -5,7 +5,7 @@ let imgwidth = "250px",
 var doc = document;
 if (doc.documentElement.clientWidth < 600) isMobile = true;
 if (isMobile) {
-	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px");
+	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px"); // tweaks for mobile users
 }
 let Header =
 	`<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="img/unis.svg" width="` +
@@ -32,10 +32,31 @@ doc.getElementById("hdr").innerHTML = Header;
 var bar = doc.createElement("div");
 bar.setAttribute("id", "bar");
 let inhtml =
-	`<div style="overflow:hidden;"><div id="left-right"><a href="index.html"><span class="ham-menu"></span>
- UbiComp </a> &#x2192; ` +
+	`<div style="overflow:hidden;"><div id="left-right" onclick="menuClick()"><span class="ham-menu"></span>
+ UbiComp &#x2192; ` +
 	doc.currentScript.getAttribute("strng") +
 	`</div></div></div><div id="menu">`;
+
+const outsideMenuListener = (event) => {
+	if (
+		!(
+			doc.getElementById("left-right").contains(event.target) ||
+			doc.getElementById("menu").contains(event.target)
+		)
+	) {
+		doc.getElementById("menu").style.height = "0px";
+		removeMenuClickListener();
+	}
+};
+const removeMenuClickListener = () => {
+	doc.removeEventListener("click", outsideMenuListener);
+};
+function menuClick() {
+	let s = doc.getElementById("menu").style;
+	s.height = s.height === "0px" ? "320px" : "0px";
+	if (s.height === "320px") doc.addEventListener("click", outsideMenuListener);
+}
+
 for (var i = 0; i < menuItems.length; i++)
 	inhtml +=
 		`<a href="` + menuItems[i][0] + `.html">` + menuItems[i][1] + `</a>`;
@@ -134,6 +155,9 @@ draw_header();
 var title = doc.createElement("title");
 title.innerHTML = "UbiComp, " + doc.currentScript.getAttribute("strng");
 doc.getElementsByTagName("head")[0].appendChild(title);
+
+// menu collapse fix:
+doc.getElementById("menu").style.height = "0px";
 
 setTimeout(function () {
 	doc.getElementById("usi_header").style.top = "0px";
