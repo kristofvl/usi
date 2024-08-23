@@ -5,9 +5,8 @@ let imgwidth = "250px",
 var doc = document,
 	win = window;
 var dwidth = doc.documentElement.clientWidth;
-var isLandscape = win.innerHeight > win.innerWidth;
-if (isLandscape && dwidth < 700) isMobile = true;
-if (!isLandscape && dwidth < 900) isMobile = true;
+var dheight = doc.documentElement.clientHeight;
+if (dwidth < 700 || dheight < 700) isMobile = true;
 if (isMobile) {
 	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px"); // header tweaks for mobile users
 }

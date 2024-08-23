@@ -37,16 +37,7 @@ p {
 	overflow-y: scroll;
 	position: relative;
 }
-@media only screen and (max-width: 700px) and (orientation: portrait) {
-	#usi_page {
-		padding: 1px 2px;
-		height: calc(100vh - 90px);
-		height: -o-calc(100vh - 90px);
-		height: -webkit-calc(100vh - 90px);
-		height: -moz-calc(100vh - 90px);
-	}
-}
-@media only screen and (max-width: 900px) and (orientation: landcape) {
+@media only screen and ((max-width: 700px) or (max-height: 700px)) {
 	#usi_page {
 		padding: 1px 2px;
 		height: calc(100vh - 90px);
