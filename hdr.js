@@ -2,10 +2,14 @@ let imgwidth = "250px",
 	i1adj = "30px",
 	i2adj = "47px",
 	isMobile = false; // defaults for non-mobile
-var doc = document;
-if (doc.documentElement.clientWidth < 600) isMobile = true;
+var doc = document,
+	win = window;
+var dwidth = doc.documentElement.clientWidth;
+var isLandscape = win.innerHeight > win.innerWidth;
+if (isLandscape && dwidth < 700) isMobile = true;
+if (!isLandscape && dwidth < 900) isMobile = true;
 if (isMobile) {
-	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px"); // tweaks for mobile users
+	(imgwidth = "140px"), (i1adj = "-4px"), (i2adj = "7px"); // header tweaks for mobile users
 }
 let Header =
 	`<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="img/unis.svg" width="` +
@@ -68,7 +72,7 @@ doc
 
 function draw_header() {
 	var x_size =
-		window.innerWidth ||
+		win.innerWidth ||
 		doc.documentElement.clientWidth ||
 		doc.getElementsByTagName("body")[0].clientWidth;
 	if (x_size > 1200) x_size = 1200;
@@ -180,7 +184,7 @@ setTimeout(function () {
 	}
 }, 100);
 
-window.addEventListener(
+win.addEventListener(
 	"resize",
 	function (event) {
 		draw_header(false);
