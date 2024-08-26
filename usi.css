@@ -121,9 +121,13 @@ polygon {
 	border-top: 2px solid white;
 	border-bottom: 4px solid white;
 	padding-left: 17px;
-	padding-top: 4px;
-	font-size: 10pt;
+	padding-top: 7px;
+	font-size: 7pt;
 	font-weight: 400;
+}
+
+#usi_ftr a:visited {
+	color: white;
 }
 
 #left-right {
