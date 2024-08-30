@@ -162,10 +162,6 @@ doc.getElementsByTagName("head")[0].appendChild(title);
 // menu collapse fix:
 doc.getElementById("menu").style.height = "0px";
 
-// add footer:
-doc.getElementById("usi_ftr").innerHTML =
-	'made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a>';
-
 setTimeout(function () {
 	doc.getElementById("usi_header").style.top = "0px";
 	doc.getElementById("usi_header").style.left = "0px";
@@ -196,3 +192,9 @@ win.addEventListener(
 	},
 	true,
 );
+
+// add footer:
+ftr = doc.getElementById("usi_ftr");
+if (ftr)
+	ftr.innerHTML =
+		'made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a>';
