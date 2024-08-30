@@ -31,7 +31,8 @@ let menuItems = [
 	["vids", "Videos"],
 	["cont", "Contact"],
 ];
-doc.getElementById("hdr").innerHTML = Header;
+var hdrElem = doc.getElementById("hdr");
+if (hdrElem) hdrElem.innerHTML = Header;
 var bar = doc.createElement("div");
 bar.setAttribute("id", "bar");
 let inhtml =
@@ -65,9 +66,7 @@ for (var i = 0; i < menuItems.length; i++)
 		`<a href="` + menuItems[i][0] + `.html">` + menuItems[i][1] + `</a>`;
 inhtml += `</div >`;
 bar.innerHTML = inhtml;
-doc
-	.getElementById("hdr")
-	.parentNode.insertBefore(bar, doc.getElementById("hdr").nextSibling);
+hdrElem.parentNode.insertBefore(bar, hdrElem.nextSibling);
 
 function draw_header() {
 	var x_size =
@@ -141,9 +140,9 @@ var FadeInt;
 
 function hdrFade() {
 	FadeInt = setInterval(function () {
-		if (doc.getElementById("poly11").style.fillOpacity != "1")
+		if (doc.getElementById("poly11").style.fillOpacity != ".97")
 			for (p = 1; p < 12; p++)
-				doc.getElementById("poly" + p).style.fillOpacity = "1";
+				doc.getElementById("poly" + p).style.fillOpacity = ".97";
 		else {
 			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "0.7";
