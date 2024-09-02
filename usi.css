@@ -335,7 +335,6 @@ polygon {
 	opacity: 0;
 }
 .lstEntry h3 {
-	color: #00365e;
 	margin: 0;
 	background-color: #0d3f00;
 	color: white;
@@ -350,9 +349,8 @@ polygon {
 }
 .lstEntry h3 a {
 	font-size: 17px;
-	color: white;
+	color: white !important;
 	font-weight: 700;
-	//margin-left: 140px;
 	display: inline-block;
 	padding-left: 0%;
 	min-width: 300px;
