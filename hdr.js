@@ -196,4 +196,5 @@ win.addEventListener(
 ftr = doc.getElementById("usi_ftr");
 if (ftr)
 	ftr.innerHTML =
-		'made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a>';
+		'made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a> on ' +
+		Date();

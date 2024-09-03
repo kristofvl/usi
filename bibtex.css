@@ -1,52 +1,56 @@
-
-#bt a.abs {
-position:relative;
-z-index:0; 
-color:#066600;
-border-bottom-width:0px;  
+span.y {
+	background-color: white;
+	font-size: 14pt;
 }
-#bt a.title {
-border-bottom-width:0px;
+#bt a.abs {
+	position: relative;
+	z-index: 0;
+	color: #066600;
+	border-bottom-width: 0px;
+}
+#bt a span.title {
+	border-bottom-width: 0px;
+	font-weight: 700;
 }
 #bt a.booktitle {
-border-bottom-width:0px;
+	border-bottom-width: 0px;
 }
 #bt a.journal {
-border-bottom-width:0px;
+	border-bottom-width: 0px;
 }
 #bt a.pdf {
-border-bottom-width:0px;
+	border-bottom-width: 0px;
 }
 #bt a.scholar {
-border-bottom-width:0px;
+	border-bottom-width: 0px;
 }
 #bt a.bibtex {
- border-bottom-width:0px;
+	border-bottom-width: 0px;
 }
 #bt a.abs .ttip {
- display: none;
- float:left;
+	display: none;
+	float: left;
 }
-#bt a.abs:hover{
- z-index:1; 
- background-color:#ffffff;
+#bt a.abs:hover {
+	z-index: 1;
+	background-color: #ffffff;
 }
-#bt a.abs:hover .ttip {  
- display:block;
- position:absolute;
- top:20px; 
- width:580px;
- border:7px double #067A6A;
- background-color:#ffffff; 
- color:#000000;
- font-size:12px;
- font-style:normal;
- padding:14px;
- padding-left:27px;
- padding-right:27px;
- text-align:justify;
+#bt a.abs:hover .ttip {
+	display: block;
+	position: absolute;
+	top: 20px;
+	width: 580px;
+	border: 7px double #067a6a;
+	background-color: #ffffff;
+	color: #000000;
+	font-size: 12px;
+	font-style: normal;
+	padding: 14px;
+	padding-left: 27px;
+	padding-right: 27px;
+	text-align: justify;
 }
 #bt p.bib_entry {
-	line-height:1.4em;
-	text-align:justify;
+	line-height: 1.4em;
+	text-align: justify;
 }
