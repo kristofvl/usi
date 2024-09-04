@@ -1,31 +1,51 @@
 span.y {
-	background-color: white;
+	background-color: #0fdfd0;
 	font-size: 14pt;
+	font-weight: 700;
+	padding: 0 4px 0 4px;
+	border: 1px solid #0d3f00;
 }
 #bt a.abs {
+	font-size: 12px;
 	position: relative;
 	z-index: 0;
 	color: #066600;
-	border-bottom-width: 0px;
+	border: 1px solid #0d3f00;
+	border-radius: 4px;
+	padding: 0 2px 0 2px;
+	margin: 0 2px 0 2px;
+	background-color: #ddd;
 }
 #bt a span.title {
-	border-bottom-width: 0px;
 	font-weight: 700;
 }
 #bt a.booktitle {
-	border-bottom-width: 0px;
 }
 #bt a.journal {
-	border-bottom-width: 0px;
 }
 #bt a.pdf {
-	border-bottom-width: 0px;
+	font-size: 12px;
+	border: 1px solid #0d3f00;
+	border-radius: 4px;
+	padding: 0 2px 0 2px;
+	margin: 0 2px 0 2px;
+	background-color: white;
 }
 #bt a.scholar {
-	border-bottom-width: 0px;
+	font-size: 12px;
+	border: 1px solid #0d3f00;
+	border-radius: 4px;
+	padding: 0 2px 0 2px;
+	margin: 0 2px 0 2px;
+	background-color: white;
 }
 #bt a.bibtex {
-	border-bottom-width: 0px;
+	font-size: 12px;
+	border: 1px solid #0d3f00;
+	border-radius: 4px;
+	padding: 0 2px 0 2px;
+	margin: 0 2px 0 2px;
+	background-color: white;
 }
 #bt a.abs .ttip {
 	display: none;
@@ -41,13 +61,13 @@ span.y {
 	top: 20px;
 	width: 580px;
 	border: 7px double #067a6a;
+	border-radius: 5px;
 	background-color: #ffffff;
 	color: #000000;
 	font-size: 12px;
 	font-style: normal;
-	padding: 14px;
-	padding-left: 27px;
-	padding-right: 27px;
+	line-height: 1.1em;
+	padding: 9px 27px 9px 27px;
 	text-align: justify;
 }
 #bt p.bib_entry {
