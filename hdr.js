@@ -138,14 +138,30 @@ function draw_header() {
 	}
 }
 
-var FadeInt;
+var FadeInt,
+	imgCntr = 0;
 
 function hdrFade() {
 	FadeInt = setInterval(function () {
-		if (doc.getElementById("poly1").style.fillOpacity != "0.97") {
+		if (doc.getElementById("poly1").style.fillOpacity != "0.98") {
 			for (p = 1; p < 11; p++)
-				doc.getElementById("poly" + p).style.fillOpacity = "0.97";
+				doc.getElementById("poly" + p).style.fillOpacity = "0.98";
 		} else {
+			switch (imgCntr) {
+				case 0:
+					doc.getElementById("usi_header").style.backgroundImage =
+						'url("img/gadgets.jpg")';
+					break;
+				case 1:
+					doc.getElementById("usi_header").style.backgroundImage =
+						'url("img/header.jpg")';
+					break;
+				case 2:
+					doc.getElementById("usi_header").style.backgroundImage =
+						'url("img/hoeld.jpg")';
+					break;
+			}
+			imgCntr = imgCntr < 2 ? imgCntr + 1 : 0;
 			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "0.7";
 		}
@@ -194,5 +210,6 @@ win.addEventListener(
 ftr = doc.getElementById("usi_ftr");
 if (ftr)
 	ftr.innerHTML =
-		'made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a> on ' +
-		Date();
+		'<a href="https://www.uni-siegen.de/start/kontakt/datenschutzerklaerung.html.en?lang=en">privacy policy</a><span style="float:right;margin-right:7px;">made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a> on ' +
+		Date() +
+		"</span>";
