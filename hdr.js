@@ -1,5 +1,5 @@
-let imgwidth = "200px",
-	i1adj = "42px",
+let imgwidth = "196px",
+	i1adj = "41px",
 	i2adj = "57px",
 	isMobile = false; // defaults for non-mobile
 var doc = document,
@@ -13,7 +13,7 @@ if (isMobile) {
 let Header =
 	`<div id="usi_header"><a href="https://www.uni-siegen.de"><img src="img/unis.svg" width="` +
 	imgwidth +
-	`" style="z-index:9; position:relative; top:` +
+	`" style="z-index:9; position:relative;left:2px;top:` +
 	i1adj +
 	`"></img></a>
  <a href="index.html"><img src="img/logo.svg" width="` +
