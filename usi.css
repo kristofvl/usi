@@ -7,9 +7,7 @@
 html,
 body {
 	font-family: "Open Sans", Sans-Serif !important;
-	height: 100%;
 	max-width: 1280px;
-	overflow: hidden;
 	margin: auto;
 	margin-top: 10px;
 	background-color: #dee2e6;
@@ -29,21 +27,11 @@ p {
 #usi_page {
 	background-color: #e6f9ff;
 	padding: 7px 17px;
-	overflow: auto;
-	height: calc(100vh - 207px);
-	height: -o-calc(100vh - 207px);
-	height: -webkit-calc(100vh - 207px);
-	height: -moz-calc(100vh - 207px);
-	overflow-y: scroll;
 	position: relative;
 }
 @media only screen and ((max-width: 700px) or (max-height: 700px)) {
 	#usi_page {
 		padding: 1px 2px;
-		height: calc(100vh - 120px);
-		height: -o-calc(100vh - 120px);
-		height: -webkit-calc(100vh - 120px);
-		height: -moz-calc(100vh - 120px);
 	}
 }
 #usi_page a:visited,
