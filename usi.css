@@ -12,9 +12,6 @@ body {
 	margin-top: 10px;
 	background-color: #dee2e6;
 }
-@media only screen and ((max-width: 700px) or (max-height: 700px)) {
-	margin: 0;
-}
 
 a {
 	text-decoration: none;
@@ -29,11 +26,6 @@ p {
 	padding: 7px 17px;
 	position: relative;
 }
-@media only screen and ((max-width: 700px) or (max-height: 700px)) {
-	#usi_page {
-		padding: 1px 2px;
-	}
-}
 #usi_page a:visited,
 a:link {
 	color: #0d3f00;
@@ -47,7 +39,7 @@ a:link {
 	left: -47px;
 	width: 100%;
 	max-width: 1280px;
-	background: #0d3f00 url("img/header.jpg") right no-repeat;
+	background: #0d3f00 url("img/header.jpg") right repeat;
 	background-size: contain;
 	opacity: 0;
 }
@@ -415,4 +407,14 @@ div.teambio ul {
 	height: 260px;
 	overflow: hidden;
 	margin-bottom: 17px;
+}
+
+@media only screen and ((max-width: 700px) or (max-height: 700px)) {
+	html,
+	body {
+		margin: 0;
+	}
+	#usi_page {
+		padding: 1px 2px;
+	}
 }

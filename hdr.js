@@ -106,6 +106,8 @@ function draw_header() {
 			"points",
 			x[0] + ",0 " + x[1] + ",0 " + x[2] + ",125 " + x[3] + ",125",
 		);
+		if (p == maxP - 1) poly.setAttribute("z-index", 1);
+		// updates for the next round:
 		if (p == 0) x[3] = 60;
 		for (i = 0; i < 4; i++) x[i] += w;
 		if (p == maxP - 2) {
@@ -118,12 +120,12 @@ function draw_header() {
 		}
 		if (p > 0) poly.setAttribute("opacity", 1);
 		svg.appendChild(poly);
-		var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon");
-		poly.setAttribute("fill", "white");
-		if (isMobile) poly.setAttribute("points", "130,0  135,0  195,125  190,125");
-		else poly.setAttribute("points", "200,0  205,0  265,125  260,125");
-		svg.appendChild(poly);
 	}
+	var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon"); // left white slash
+	poly.setAttribute("fill", "white");
+	if (isMobile) poly.setAttribute("points", "130,0  135,0  195,125  190,125");
+	else poly.setAttribute("points", "200,0  205,0  265,125  260,125");
+	svg.appendChild(poly);
 	previousSVG = hdr.lastChild;
 	if (previousSVG.tagName == "svg") previousSVG.remove();
 	hdr.appendChild(svg);
@@ -140,13 +142,12 @@ var FadeInt;
 
 function hdrFade() {
 	FadeInt = setInterval(function () {
-		if (doc.getElementById("poly11").style.fillOpacity != "0.97") {
-			for (p = 1; p < 12; p++)
+		if (doc.getElementById("poly1").style.fillOpacity != "0.97") {
+			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "0.97";
 		} else {
 			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "0.7";
-			doc.getElementById("poly11").style.fillOpacity = "0.77";
 		}
 	}, 6000);
 }
@@ -169,9 +170,6 @@ setTimeout(function () {
 setTimeout(function () {
 	doc.getElementById("left-right").style.left = "0px";
 	doc.getElementById("left-right").style.opacity = "1";
-	for (p = 1; p < 11; p++)
-		doc.getElementById("poly" + p).style.fillOpacity = "0.7";
-	doc.getElementById("poly11").style.fillOpacity = "0.77";
 }, 790);
 hdrFade();
 setTimeout(function () {
@@ -192,7 +190,7 @@ win.addEventListener(
 	true,
 );
 
-// add footer:
+// add footer content:
 ftr = doc.getElementById("usi_ftr");
 if (ftr)
 	ftr.innerHTML =
