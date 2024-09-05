@@ -1,6 +1,6 @@
-let imgwidth = "250px",
-	i1adj = "30px",
-	i2adj = "47px",
+let imgwidth = "200px",
+	i1adj = "42px",
+	i2adj = "57px",
 	isMobile = false; // defaults for non-mobile
 var doc = document,
 	win = window;
@@ -73,16 +73,16 @@ function draw_header() {
 		win.innerWidth ||
 		doc.documentElement.clientWidth ||
 		doc.getElementsByTagName("body")[0].clientWidth;
-	if (x_size > 1200) x_size = 1200;
+	if (x_size > 1280) x_size = 1280;
 	var hdr = doc.getElementById("usi_header");
 	var svg = doc.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svg.setAttribute("z-index", 5);
 	svg.setAttribute("width", x_size);
 	svg.setAttribute("height", 125);
 	svg.setAttribute("style", "position:absolute;left:0px");
-	var x = [0, isMobile ? 130 : 240, isMobile ? 190 : 300, 0],
-		w = isMobile ? 135 : 245,
-		rightW = isMobile ? 147 : 257,
+	var x = [0, isMobile ? 130 : 200, isMobile ? 190 : 260, 0],
+		w = isMobile ? 135 : 205,
+		rightW = isMobile ? 147 : 217,
 		c = [
 			"#0d3f00",
 			"#0d4f30",
@@ -112,7 +112,7 @@ function draw_header() {
 			x[1] = x[2] = x_size;
 		}
 		if (p == 0) {
-			w = Math.floor((x_size - rightW - (isMobile ? 157 : 300)) / (maxP - 2));
+			w = Math.floor((x_size - rightW - (isMobile ? 157 : 260)) / (maxP - 2));
 			x[1] = x[0] + w;
 			x[2] = x[3] + w;
 		}
@@ -121,7 +121,7 @@ function draw_header() {
 		var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		poly.setAttribute("fill", "white");
 		if (isMobile) poly.setAttribute("points", "130,0  135,0  195,125  190,125");
-		else poly.setAttribute("points", "240,0  245,0  305,125  300,125");
+		else poly.setAttribute("points", "200,0  205,0  265,125  260,125");
 		svg.appendChild(poly);
 	}
 	previousSVG = hdr.lastChild;
@@ -140,10 +140,10 @@ var FadeInt;
 
 function hdrFade() {
 	FadeInt = setInterval(function () {
-		if (doc.getElementById("poly11").style.fillOpacity != ".97")
+		if (doc.getElementById("poly11").style.fillOpacity != "0.97") {
 			for (p = 1; p < 12; p++)
-				doc.getElementById("poly" + p).style.fillOpacity = ".97";
-		else {
+				doc.getElementById("poly" + p).style.fillOpacity = "0.97";
+		} else {
 			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "0.7";
 			doc.getElementById("poly11").style.fillOpacity = "0.77";
