@@ -7,15 +7,15 @@
 html,
 body {
 	font-family: "Open Sans", Sans-Serif !important;
-	margin-top: 8px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 8px;
 	height: 100%;
-	max-width: 1200px;
+	max-width: 1280px;
 	overflow: hidden;
 	margin: auto;
-	background-color: grey;
+	margin-top: 10px;
+	background-color: #dee2e6;
+}
+@media only screen and ((max-width: 700px) or (max-height: 700px)) {
+	margin: 0;
 }
 
 a {
@@ -56,10 +56,9 @@ a:link {
 	-webkit-transition: all 0.4s ease;
 	transition: all 0.4s ease;
 	top: -125px;
-	margin-top: 3px;
 	left: -47px;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1280px;
 	background: #0d3f00 url("img/header.jpg") right no-repeat;
 	background-size: contain;
 	opacity: 0;
@@ -99,7 +98,6 @@ polygon {
 }
 
 #hdr {
-	margin-top: 8px;
 	width: 100%;
 	background-color: white;
 	overflow: hidden;
@@ -137,7 +135,7 @@ polygon {
 #left-right {
 	height: 27px;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1280px;
 	position: relative;
 	background-color: #0d3f00;
 	-webkit-transition: left 0.4s ease;
