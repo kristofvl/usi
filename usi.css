@@ -39,8 +39,8 @@ a:link {
 	left: -47px;
 	width: 100%;
 	max-width: 1280px;
-	background: #0d3f00 url("img/header.jpg") right repeat;
-	background-size: contain;
+	background: #0d3f00 url("img/header.jpg") right;
+	background-size: 100% height;
 	opacity: 0;
 }
 
