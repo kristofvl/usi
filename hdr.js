@@ -143,7 +143,6 @@ var FadeInt,
 
 function hdrFade() {
 	FadeInt = setInterval(function () {
-		console.log(doc.getElementById("poly1").style.fillOpacity);
 		if (doc.getElementById("poly1").style.fillOpacity != "1") {
 			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "1";
