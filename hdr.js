@@ -118,7 +118,6 @@ function draw_header() {
 			x[1] = x[0] + w;
 			x[2] = x[3] + w;
 		}
-		if (p > 0) poly.setAttribute("opacity", 1);
 		svg.appendChild(poly);
 	}
 	var poly = doc.createElementNS("http://www.w3.org/2000/svg", "polygon"); // left white slash
@@ -136,6 +135,7 @@ function draw_header() {
 	} else {
 		doc.getElementById("usi_header").style.height = "125px";
 	}
+	doc.getElementById("poly1").style.fillOpacity = 1;
 }
 
 var FadeInt,
@@ -143,9 +143,10 @@ var FadeInt,
 
 function hdrFade() {
 	FadeInt = setInterval(function () {
-		if (doc.getElementById("poly1").style.fillOpacity != "0.98") {
+		console.log(doc.getElementById("poly1").style.fillOpacity);
+		if (doc.getElementById("poly1").style.fillOpacity != "1") {
 			for (p = 1; p < 11; p++)
-				doc.getElementById("poly" + p).style.fillOpacity = "0.98";
+				doc.getElementById("poly" + p).style.fillOpacity = "1";
 		} else {
 			switch (imgCntr) {
 				case 0:
@@ -187,7 +188,7 @@ setTimeout(function () {
 	doc.getElementById("left-right").style.left = "0px";
 	doc.getElementById("left-right").style.opacity = "1";
 }, 790);
-hdrFade();
+if (!isMobile) hdrFade();
 setTimeout(function () {
 	var elems = doc.getElementsByClassName("lstEntry");
 	for (i = 0; i < elems.length; i++) {
