@@ -208,8 +208,13 @@ win.addEventListener(
 
 // add footer content:
 ftr = doc.getElementById("usi_ftr");
-if (ftr)
-	ftr.innerHTML =
-		'<a href="https://www.uni-siegen.de/start/kontakt/datenschutzerklaerung.html.en?lang=en">privacy policy</a><span style="float:right;margin-right:7px;">made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a> on ' +
+if (ftr) {
+	ftr.innerHTML = "";
+	if (window.location.href.includes("uni-siegen.de"))
+		ftr.innerHTML =
+			'<a href="https://www.uni-siegen.de/start/kontakt/datenschutzerklaerung.html.en?lang=en">privacy policy</a>';
+	ftr.innerHTML +=
+		'<span style="float:right;margin-right:7px;">made with the <a href="https://github.com/kristofvl/usi">usi</a> template by <a href="https://github.com/kristofvl">kvl</a> on ' +
 		Date() +
 		"</span>";
+}
