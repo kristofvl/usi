@@ -62,6 +62,7 @@ span.y {
 	width: 580px;
 	border: 7px double #067a6a;
 	border-radius: 5px;
+	box-shadow: 7px 7px 9px 0px rgba(0, 0, 0, 0.75);
 	background-color: #ffffff;
 	color: #000000;
 	font-size: 12px;
