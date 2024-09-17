@@ -210,14 +210,10 @@ polygon {
 }
 
 #home_content {
-	position: static;
-	top: calc(25vh);
-	right: 0;
 	background: rgba(0, 0, 0, 0.7);
 	color: #f1f1f1;
 	min-width: 350px;
-	padding: 10px;
-	border-radius: 4px;
+	padding: 7px;
 }
 #home_content h1 {
 	margin-block: 7px;
@@ -226,11 +222,10 @@ polygon {
 #home_content p {
 	margin-block: 7px;
 }
-
 #home_video {
-	max-width: 640px;
 	float: left;
-	padding: 10px;
+	max-width: 640px;
+	padding: 7px;
 }
 
 #map {
