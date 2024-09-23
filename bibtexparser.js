@@ -1,3 +1,6 @@
+if (window.location.href.includes("uni-siegen.de")) pdfLoc = "pdf/";
+else pdfLoc = "https://ubi29.informatik.uni-siegen.de/usi/pdf/";
+
 function BibtexParser() {
 	(this.pos = 0),
 		(this.input = ""),
@@ -133,9 +136,7 @@ function BibtexParser() {
 				(this.entries[this.currentEntry].EKEY = this.currentEntry),
 				"Y" != this.currentEntry.charAt(0) &&
 					((this.entries[this.currentEntry].PDF =
-						"https://www.eti.uni-siegen.de/ubicomp/papers/" +
-						this.currentEntry.toLowerCase() +
-						".pdf"),
+						pdfLoc + this.currentEntry.toLowerCase() + ".pdf"),
 					(this.entries[this.currentEntry].SCHOLAR =
 						'http://scholar.google.com/scholar?as_q="' +
 						this.entries[this.currentEntry].TITLE +
