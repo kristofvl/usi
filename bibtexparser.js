@@ -190,7 +190,7 @@ function BibtexDisplay() {
 			(a = a.replace(/\\url/g, "")),
 			(a = a.replace(/---/g, "&mdash;")),
 			(a = a.replace(/{\a}/g, "&auml;")),
-			(a = a.replace(/\{\\"o\}/g, "&ouml;")),
+			(a = a.replace(/{\\"o}/g, "&ouml;")),
 			(a = a.replace(/{\\"u}/g, "&uuml;")),
 			(a = a.replace(/{\\"A}/g, "&Auml;")),
 			(a = a.replace(/{\\"O}/g, "&Ouml;")),
