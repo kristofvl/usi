@@ -140,7 +140,6 @@ function draw_header() {
 
 var FadeInt,
 	imgCntr = 0;
-
 function hdrFade() {
 	FadeInt = setInterval(function () {
 		if (doc.getElementById("poly1").style.fillOpacity != "1") {
@@ -154,21 +153,24 @@ function hdrFade() {
 					break;
 				case 1:
 					doc.getElementById("usi_header").style.backgroundImage =
-						'url("img/header.jpg")';
+						'url("img/hoeld.jpg")';
 					break;
 				case 2:
 					doc.getElementById("usi_header").style.backgroundImage =
-						'url("img/hoeld.jpg")';
+						'url("img/header.jpg")';
 					break;
 			}
 			imgCntr = imgCntr < 2 ? imgCntr + 1 : 0;
 			for (p = 1; p < 11; p++)
 				doc.getElementById("poly" + p).style.fillOpacity = "0.7";
 		}
-	}, 6000);
+	}, 4000);
 }
 
 draw_header();
+if (!isMobile) hdrFade();
+for (p = 1; p < 11; p++)
+	doc.getElementById("poly" + p).style.fillOpacity = "0.9";
 
 // add title:
 var title = doc.createElement("title");
@@ -187,7 +189,6 @@ setTimeout(function () {
 	doc.getElementById("left-right").style.left = "0px";
 	doc.getElementById("left-right").style.opacity = "1";
 }, 790);
-if (!isMobile) hdrFade();
 setTimeout(function () {
 	var elems = doc.getElementsByClassName("lstEntry");
 	for (i = 0; i < elems.length; i++) {
