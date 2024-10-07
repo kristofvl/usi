@@ -17,7 +17,6 @@
 	<body>
 		<div id="hdr"></div>
 		<script async src="hdr.js" strng="Publications"></script>
-
 		<div id="usi_page">
 			<div id="bt">
 				<textarea id="bibtex_input" style="display: none"> </textarea>
@@ -29,7 +28,7 @@
 						dataType: "text",
 						success: function (data) {
 							$("#bibtex_input").text(data);
-							bibtex_js_draw();
+							bibtex();
 						},
 					});
 				});
