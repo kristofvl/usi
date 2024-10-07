@@ -216,6 +216,8 @@ function BibtexDisplay() {
 					var tSpan = document.createElement("a");
 					tSpan.className = "btitle";
 					tSpan.innerHTML = c.entries[ff].BOOKTITLE;
+					if (Object.hasOwn(c.entries[ff], "BOOKURL"))
+						tSpan.setAttribute("href", c.entries[ff].BOOKURL);
 					yDiv.appendChild(tSpan);
 					yDiv.innerHTML += ", ";
 				}
