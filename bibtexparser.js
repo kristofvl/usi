@@ -1,4 +1,6 @@
 pdfLoc = "pdf/";
+doiLoc = "http://api.crossref.org/works/";
+gscholarLoc = "http://scholar.google.com/scholar?as_q=";
 
 function BibtexParser() {
 	(this.pos = 0),
@@ -243,7 +245,7 @@ function bibtex() {
 				ttip.appendChild(abs);
 				tSpan.appendChild(ttip);
 				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "] ";
+				yDiv.innerHTML += "]";
 			}
 			if (Object.hasOwn(c.entries[ff], "EKEY")) {
 				yDiv.innerHTML += "[";
@@ -255,21 +257,16 @@ function bibtex() {
 					pdfLoc + c.entries[ff].EKEY.toLowerCase() + ".pdf",
 				);
 				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "] ";
+				yDiv.innerHTML += "]";
 			}
 			if (Object.hasOwn(c.entries[ff], "TITLE")) {
 				yDiv.innerHTML += "[";
 				var tSpan = document.createElement("a");
 				tSpan.className = "btn";
 				tSpan.innerHTML = "scholar";
-				tSpan.setAttribute(
-					"href",
-					'http://scholar.google.com/scholar?as_q="' +
-						c.entries[ff].TITLE +
-						'"',
-				);
+				tSpan.setAttribute("href", gscholarLoc + c.entries[ff].TITLE);
 				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "] ";
+				yDiv.innerHTML += "]";
 			}
 			if (Object.hasOwn(c.entries[ff], "DOI")) {
 				yDiv.innerHTML += "[";
@@ -278,12 +275,10 @@ function bibtex() {
 				tSpan.innerHTML = "bibtex";
 				tSpan.setAttribute(
 					"href",
-					"http://api.crossref.org/works/" +
-						c.entries[ff].DOI +
-						"/transform/application/x-bibtex",
+					doiLoc + c.entries[ff].DOI + "/transform/application/x-bibtex",
 				);
 				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "] ";
+				yDiv.innerHTML += "]";
 			}
 			if (Object.hasOwn(c.entries[ff], "NOTE")) {
 				var tSpan = document.createElement("a");
