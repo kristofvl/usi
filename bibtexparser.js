@@ -176,7 +176,6 @@ function bibtex() {
 	var bibct = document.getElementById("bt");
 	var c = new BibtexParser();
 	c.setInput(a), c.btex();
-	console.log(c.entries);
 	for (var ff in c.entries) {
 		var yDiv = document.createElement("p");
 		yDiv.className = "be";
