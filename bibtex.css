@@ -1,9 +1,20 @@
-span.y {
+#bt p.bib_entry {
+	line-height: 1.4em;
+	text-align: justify;
+}
+#bt span.y {
 	background-color: #0fdfd0;
 	font-size: 14pt;
 	font-weight: 700;
 	padding: 0 4px 0 4px;
 	border: 1px solid #0d3f00;
+}
+#bt a {
+	font-weight: 700;
+}
+#bt a.btitle {
+	font-style: italic;
+	font-weight: 400;
 }
 #bt a.abs {
 	font-size: 12px;
@@ -15,37 +26,7 @@ span.y {
 	padding: 0 2px 0 2px;
 	margin: 0 2px 0 2px;
 	background-color: #ddd;
-}
-#bt a span.title {
-	font-weight: 700;
-}
-#bt a.booktitle {
-}
-#bt a.journal {
-}
-#bt a.pdf {
-	font-size: 12px;
-	border: 1px solid #0d3f00;
-	border-radius: 4px;
-	padding: 0 2px 0 2px;
-	margin: 0 2px 0 2px;
-	background-color: white;
-}
-#bt a.scholar {
-	font-size: 12px;
-	border: 1px solid #0d3f00;
-	border-radius: 4px;
-	padding: 0 2px 0 2px;
-	margin: 0 2px 0 2px;
-	background-color: white;
-}
-#bt a.bibtex {
-	font-size: 12px;
-	border: 1px solid #0d3f00;
-	border-radius: 4px;
-	padding: 0 2px 0 2px;
-	margin: 0 2px 0 2px;
-	background-color: white;
+	font-weight: 400;
 }
 #bt a.abs .ttip {
 	display: none;
@@ -53,7 +34,7 @@ span.y {
 }
 #bt a.abs:hover {
 	z-index: 1;
-	background-color: #ffffff;
+	background-color: white;
 }
 #bt a.abs:hover .ttip {
 	display: block;
@@ -63,15 +44,20 @@ span.y {
 	border: 7px double #067a6a;
 	border-radius: 5px;
 	box-shadow: 7px 7px 9px 0px rgba(0, 0, 0, 0.75);
-	background-color: #ffffff;
-	color: #000000;
+	background-color: white;
+	color: black;
 	font-size: 12px;
 	font-style: normal;
 	line-height: 1.1em;
 	padding: 9px 27px 9px 27px;
 	text-align: justify;
 }
-#bt p.bib_entry {
-	line-height: 1.4em;
-	text-align: justify;
+#bt a.btn {
+	font-size: 12px;
+	border: 1px solid #0d3f00;
+	border-radius: 4px;
+	padding: 0 2px 0 2px;
+	margin: 0 2px 0 2px;
+	background-color: white;
+	font-weight: 400;
 }

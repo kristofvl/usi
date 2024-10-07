@@ -1,5 +1,4 @@
-if (window.location.href.includes("uni-siegen.de")) pdfLoc = "pdf/";
-else pdfLoc = "https://ubi29.informatik.uni-siegen.de/usi/pdf/";
+pdfLoc = "pdf/";
 
 function BibtexParser() {
 	(this.pos = 0),
@@ -182,103 +181,134 @@ function BibtexParser() {
 }
 
 function BibtexDisplay() {
-	(this.fixValue = function (a) {
-		return (
-			(a = a.replace(/\\glqq\s?/g, "&bdquo;")),
-			(a = a.replace(/\\grqq\s?/g, "&rdquo;")),
-			(a = a.replace(/\\ /g, "&nbsp;")),
-			(a = a.replace(/\\url/g, "")),
-			(a = a.replace(/---/g, "&mdash;")),
-			(a = a.replace(/{\a}/g, "&auml;")),
-			(a = a.replace(/\\"o/g, "&ouml;")),
-			(a = a.replace(/{\\"u}/g, "&uuml;")),
-			(a = a.replace(/{\\"A}/g, "&Auml;")),
-			(a = a.replace(/{\\"O}/g, "&Ouml;")),
-			(a = a.replace(/{\\"U}/g, "&Uuml;")),
-			(a = a.replace(/\\ss/g, "&szlig;")),
-			(a = a.replace(/\{(.*?)\}/g, "$1"))
-		);
-	}),
-		(this.displayBibtex2 = function (a, b) {
-			var c = new BibtexParser();
-			c.setInput(a), c.bibtex();
-			var d = c.getEntries(),
-				e = b.find("*");
-			for (var f in d) {
-				var g = $(".bibtex_template").clone().removeClass("bibtex_template");
-				g.addClass("unused");
-				for (var h in d[f])
-					for (
-						var i = g.find("." + h.toLowerCase()), a = 0;
-						a < i.size();
-						a++
-					) {
-						var j = $(i[a]);
-						j.removeClass("unused");
-						var k = this.fixValue(d[f][h]);
-						if (j.is("a")) j.attr("href", k);
-						else {
-							var l = j.html() || "";
-							l.match("%") ? j.html(l.replace("%", k)) : j.html(k);
-						}
-					}
-				var m = g.find("span .unused");
-				m.each(function (a, b) {
-					b.innerHTML.match("%") && (b.innerHTML = "");
-				}),
-					b.append(g),
-					g.show();
-			}
-			e.remove();
-		}),
-		(this.displayBibtex = function (a, b) {
-			var c = new BibtexParser();
-			c.setInput(a), c.bibtex();
-			var d = b.find("*"),
-				e = c.getEntries();
-			for (var f in e) {
-				var g = e[f],
-					h = $(".bibtex_template").clone().removeClass("bibtex_template"),
-					i = [];
-				for (var j in g) i.push(j.toUpperCase());
-				for (;;) {
-					var l = h.find(".if");
-					if (0 == l.size()) break;
-					var m = l.first();
-					m.removeClass("if");
-					var n = !0,
-						o = m.attr("class").split(" ");
-					$.each(o, function (a, b) {
-						i.indexOf(b.toUpperCase()) < 0 && (n = !1), m.removeClass(b);
-					}),
-						n || m.remove();
+	this.displayBibtex = function (a) {
+		var bibct = document.getElementById("bibct");
+		var c = new BibtexParser();
+		console.log(c.entries);
+		c.setInput(a), c.bibtex();
+		for (var ff in c.entries) {
+			var yDiv = document.createElement("p");
+			yDiv.className = "bib_entry";
+			if (Object.hasOwn(c.entries[ff], "Y")) {
+				var ySpan = document.createElement("span");
+				ySpan.className = "y";
+				ySpan.innerHTML = c.entries[ff].Y;
+				yDiv.appendChild(ySpan);
+			} else {
+				if (Object.hasOwn(c.entries[ff], "TITLE")) {
+					var tSpan = document.createElement("a");
+					tSpan.className = "url";
+					if (Object.hasOwn(c.entries[ff], "URL"))
+						tSpan.setAttribute("href", c.entries[ff].URL);
+					tSpan.innerHTML = c.entries[ff].TITLE;
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += ", ";
 				}
-				for (var p in i) {
-					var j = i[p],
-						q = g[j] || "";
-					h.find("span:not(a)." + j.toLowerCase()).html(this.fixValue(q)),
-						h.find("a." + j.toLowerCase()).attr("href", this.fixValue(q));
+				if (Object.hasOwn(c.entries[ff], "AUTHOR")) {
+					var tSpan = document.createElement("span");
+					tSpan.className = "auth";
+					tSpan.innerHTML = c.entries[ff].AUTHOR;
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += ", ";
 				}
-				b.append(h), h.show();
+				if (Object.hasOwn(c.entries[ff], "BOOKTITLE")) {
+					yDiv.innerHTML += "In ";
+					var tSpan = document.createElement("a");
+					tSpan.className = "btitle";
+					tSpan.innerHTML = c.entries[ff].BOOKTITLE;
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += ", ";
+				}
+				if (Object.hasOwn(c.entries[ff], "JOURNAL")) {
+					yDiv.innerHTML += "In ";
+					var tSpan = document.createElement("a");
+					tSpan.className = "btitle";
+					tSpan.innerHTML = c.entries[ff].JOURNAL;
+					if (Object.hasOwn(c.entries[ff], "JOURNALURL"))
+						tSpan.setAttribute("href", c.entries[ff].JOURNALURL);
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += ", ";
+				}
+				if (Object.hasOwn(c.entries[ff], "VOLUME")) {
+					yDiv.innerHTML += "vol." + c.entries[ff].VOLUME;
+					if (Object.hasOwn(c.entries[ff], "NUMBER"))
+						yDiv.innerHTML += "(" + c.entries[ff].NUMBER + ")";
+					else yDiv.innerHTML += ", ";
+				}
+				if (Object.hasOwn(c.entries[ff], "ARCHIVEPREFIX"))
+					yDiv.innerHTML += c.entries[ff].ARCHIVEPREFIX + " ";
+				if (Object.hasOwn(c.entries[ff], "EPRINT"))
+					yDiv.innerHTML += c.entries[ff].EPRINT + ", ";
+				if (Object.hasOwn(c.entries[ff], "PAGES"))
+					yDiv.innerHTML += "p." + c.entries[ff].PAGES + ", ";
+				if (Object.hasOwn(c.entries[ff], "YEAR"))
+					yDiv.innerHTML += c.entries[ff].YEAR + ". ";
+				if (Object.hasOwn(c.entries[ff], "ABSTRACT")) {
+					yDiv.innerHTML += "[";
+					var tSpan = document.createElement("a");
+					tSpan.className = "abs";
+					tSpan.innerHTML = "abstract";
+					var ttip = document.createElement("span"),
+						abs = document.createElement("span");
+					ttip.className = "ttip";
+					abs.className = "abstract";
+					abs.innerHTML = c.entries[ff].ABSTRACT;
+					ttip.appendChild(abs);
+					tSpan.appendChild(ttip);
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += "] ";
+				}
+				if (Object.hasOwn(c.entries[ff], "EKEY")) {
+					yDiv.innerHTML += "[";
+					var tSpan = document.createElement("a");
+					tSpan.className = "btn";
+					tSpan.innerHTML = "pdf";
+					tSpan.setAttribute(
+						"href",
+						pdfLoc + c.entries[ff].EKEY.toLowerCase() + ".pdf",
+					);
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += "] ";
+				}
+				if (Object.hasOwn(c.entries[ff], "SCHOLAR")) {
+					yDiv.innerHTML += "[";
+					var tSpan = document.createElement("a");
+					tSpan.className = "btn";
+					tSpan.innerHTML = "scholar";
+					tSpan.setAttribute("href", c.entries[ff].SCHOLAR);
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += "] ";
+				}
+				if (Object.hasOwn(c.entries[ff], "BIBTEX")) {
+					yDiv.innerHTML += "[";
+					var tSpan = document.createElement("a");
+					tSpan.className = "btn";
+					tSpan.innerHTML = "bibtex";
+					tSpan.setAttribute("href", c.entries[ff].BIBTEX);
+					yDiv.appendChild(tSpan);
+					yDiv.innerHTML += "] ";
+				}
 			}
-			d.remove();
-		});
+			bibct.appendChild(yDiv);
+		}
+	};
 }
 
 function bibtex_js_draw() {
-	$(".bibtex_template").hide(),
-		new BibtexDisplay().displayBibtex(
-			$("#bibtex_input").val(),
-			$("#bibtex_display"),
-		);
+	//$(".bibtex_template").hide(),
+	new BibtexDisplay().displayBibtex(
+		$("#bibtex_input").val() /*,
+		$("#bibtex_display"),*/,
+	);
 }
 
+/*
 "undefined" == typeof jQuery
 	? alert("Please include jquery in all pages using bibtex_js!")
 	: $(document).ready(function () {
 			0 == $(".bibtex_template").size() &&
 				$("body").append(
 					'<div class="bibtex_template"><p class="bib_entry"><span class="if url"><a class="url"></span><span class="title"></span><span class="if url">, </a></span><span class="if author"><span class="author"></span>.</span> <span class="if journal"><span class="if journalurl"><a class="journalurl" style="color:black;"></span><span class="journal" style="font-style: italic;"></span><span class="if journalurl"></a>, </span></span> <span class="if booktitle">In <span class="if bookurl"><a class="bookurl" style="color:black;"></span><span class="booktitle" style="font-style: italic;"></span><span class="if bookurl"></a>, </span></span> <span class="if volume"><span class="volume"></span><span class="if number">(<span class="number"></span>)</span><span class="if pages">: <span class="pages"></span></span>,</span> <span class="if chapter">chap. <span class="chapter"></span><span class="if pages">, <span class="pages"></span></span>,</span> <span class="if publisher"><span class="publisher"></span>,</span> <span class="if edition"><span class="edition"></span> edn.,</span> <span class="if year"><span class="if month"><span class="month"></span>,</span><span class="year"></span>.</span><span class="if abstract">[<a class="abs">abstract<span class="ttip"><span class="abstract"></span></span></a>]</span><span class="if fulltexturl">[<b><a class="fulltexturl" style="color:black;">PDF</a></b>]</span><span class="if pdf">[<b><a class="pdf" style="color:black;">pdf</a></b>]</span><span class="if scholar">[<a class="scholar" style="color:black;">scholar</a>]</span><span class="if bibtex">[<a class="bibtex" style="color:black;">bibtex</a>]</span><span class="if note">[<span class="note" style="color:blue;background-color:#ffffcc;padding:0;border:0;"></span>]</span><span class="if y">-<span class="y"></span>-</span></p></div>',
-				),
-				bibtex_js_draw();
+				);
 		});
+*/
