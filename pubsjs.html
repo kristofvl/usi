@@ -21,9 +21,7 @@
 		<div id="usi_page">
 			<div id="bt">
 				<textarea id="bibtex_input" style="display: none"> </textarea>
-				<div id="bibct"></div>
 			</div>
-
 			<script type="text/javascript">
 				$(document).ready(function () {
 					$.ajax({
@@ -31,9 +29,6 @@
 						dataType: "text",
 						success: function (data) {
 							$("#bibtex_input").text(data);
-							var dv = document.createElement("div");
-							dv.id = "bibtex_display";
-							document.getElementById("bibct").appendChild(dv);
 							bibtex_js_draw();
 						},
 					});

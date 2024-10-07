@@ -182,9 +182,8 @@ function BibtexParser() {
 
 function BibtexDisplay() {
 	this.displayBibtex = function (a) {
-		var bibct = document.getElementById("bibct");
+		var bibct = document.getElementById("bt");
 		var c = new BibtexParser();
-		console.log(c.entries);
 		c.setInput(a), c.bibtex();
 		for (var ff in c.entries) {
 			var yDiv = document.createElement("p");
