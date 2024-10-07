@@ -133,20 +133,9 @@ function BibtexParser() {
 				this.match(","),
 				this.key_value_list(),
 				(this.entries[this.currentEntry].EKEY = this.currentEntry),
-				"Y" != this.currentEntry.charAt(0) &&
-					((this.entries[this.currentEntry].PDF =
-						pdfLoc + this.currentEntry.toLowerCase() + ".pdf"),
-					(this.entries[this.currentEntry].SCHOLAR =
-						'http://scholar.google.com/scholar?as_q="' +
-						this.entries[this.currentEntry].TITLE +
-						'"')),
 				void 0 != this.entries[this.currentEntry].DOI &&
-					((this.entries[this.currentEntry].URL =
-						"http://dx.doi.org/" + this.entries[this.currentEntry].DOI),
-					(this.entries[this.currentEntry].BIBTEX =
-						"http://api.crossref.org/works/" +
-						this.entries[this.currentEntry].DOI +
-						"/transform/application/x-bibtex"));
+					(this.entries[this.currentEntry].URL =
+						"http://dx.doi.org/" + this.entries[this.currentEntry].DOI);
 		}),
 		(this.directive = function () {
 			return this.match("@"), "@" + this.key();
@@ -164,7 +153,7 @@ function BibtexParser() {
 		(this.entry = function () {
 			this.entry_body();
 		}),
-		(this.bibtex = function () {
+		(this.btex = function () {
 			for (; this.tryMatch("@"); ) {
 				var a = this.directive().toUpperCase();
 				this.match("{"),
@@ -180,12 +169,14 @@ function BibtexParser() {
 		});
 }
 
-function BibtexDisplay(a) {
+function bibtex() {
 	var bib = document.getElementById("bibtex_input");
+	var a = bib.innerHTML;
 	bib.remove();
 	var bibct = document.getElementById("bt");
 	var c = new BibtexParser();
-	c.setInput(a), c.bibtex();
+	c.setInput(a), c.btex();
+	console.log(c.entries);
 	for (var ff in c.entries) {
 		var yDiv = document.createElement("p");
 		yDiv.className = "be";
@@ -267,21 +258,31 @@ function BibtexDisplay(a) {
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += "] ";
 			}
-			if (Object.hasOwn(c.entries[ff], "SCHOLAR")) {
+			if (Object.hasOwn(c.entries[ff], "TITLE")) {
 				yDiv.innerHTML += "[";
 				var tSpan = document.createElement("a");
 				tSpan.className = "btn";
 				tSpan.innerHTML = "scholar";
-				tSpan.setAttribute("href", c.entries[ff].SCHOLAR);
+				tSpan.setAttribute(
+					"href",
+					'http://scholar.google.com/scholar?as_q="' +
+						c.entries[ff].TITLE +
+						'"',
+				);
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += "] ";
 			}
-			if (Object.hasOwn(c.entries[ff], "BIBTEX")) {
+			if (Object.hasOwn(c.entries[ff], "DOI")) {
 				yDiv.innerHTML += "[";
 				var tSpan = document.createElement("a");
 				tSpan.className = "btn";
 				tSpan.innerHTML = "bibtex";
-				tSpan.setAttribute("href", c.entries[ff].BIBTEX);
+				tSpan.setAttribute(
+					"href",
+					"http://api.crossref.org/works/" +
+						c.entries[ff].DOI +
+						"/transform/application/x-bibtex",
+				);
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += "] ";
 			}
@@ -294,8 +295,4 @@ function BibtexDisplay(a) {
 		}
 		bibct.appendChild(yDiv);
 	}
-}
-
-function bibtex_js_draw() {
-	BibtexDisplay($("#bibtex_input").val());
 }
