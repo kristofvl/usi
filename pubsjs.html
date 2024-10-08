@@ -1,10 +1,6 @@
 <!doctype html>
 <html>
 	<head>
-		<script
-			src="https://code.jquery.com/jquery-latest.min.js"
-			type="text/javascript"
-		></script>
 		<script src="bibtexparser.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="bibtex.css" />
 		<link rel="stylesheet" href="usi.css" />
@@ -22,15 +18,23 @@
 				<textarea id="bibtex_input" style="display: none"> </textarea>
 			</div>
 			<script type="text/javascript">
-				$(document).ready(function () {
-					$.ajax({
-						url: "https://kristofvl.github.io/usi/bt.bib",
-						dataType: "text",
-						success: function (data) {
-							$("#bibtex_input").text(data);
-							bibtex();
-						},
-					});
+				document.addEventListener("DOMContentLoaded", () => {
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function () {
+						if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+							if (xmlhttp.status == 200) {
+								document.getElementById("bibtex_input").innerHTML =
+									xmlhttp.responseText;
+								bibtex();
+							} else if (xmlhttp.status == 400) {
+								alert("There was an error 400");
+							} else {
+								alert("something else other than 200 was returned");
+							}
+						}
+					};
+					xmlhttp.open("GET", "https://kristofvl.github.io/usi/bt.bib", true);
+					xmlhttp.send();
 				});
 			</script>
 		</div>
