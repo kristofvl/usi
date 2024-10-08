@@ -1,11 +1,12 @@
 pdfLoc = "pdf/";
 doiLoc = "http://api.crossref.org/works/";
+doiLoc2 = "/transform/application/x-bibtex";
 gscholarLoc = "http://scholar.google.com/scholar?as_q=";
 
 function BibtexParser() {
 	(this.pos = 0),
 		(this.input = ""),
-		(this.entries = {}),
+		(this.es = {}),
 		(this.strings = {
 			JAN: "January",
 			FEB: "February",
@@ -24,9 +25,6 @@ function BibtexParser() {
 		(this.currentEntry = ""),
 		(this.setInput = function (a) {
 			this.input = a;
-		}),
-		(this.getEntries = function () {
-			return this.entries;
 		}),
 		(this.isWhitespace = function (a) {
 			return " " == a || "\r" == a || "\t" == a || "\n" == a;
@@ -88,10 +86,7 @@ function BibtexParser() {
 			var a = this.pos;
 			if (this.tryMatch("{")) return this.value_braces();
 			if (this.tryMatch('"')) return this.value_quotes();
-			var b = this.key();
-			if (this.strings[b.toUpperCase()]) return this.strings[b];
-			if (b.match("^[0-9]+$")) return b;
-			throw "Value expected:" + this.input.substring(a);
+			return this.key();
 		}),
 		(this.value = function () {
 			var a = [];
@@ -122,22 +117,19 @@ function BibtexParser() {
 		(this.key_value_list = function () {
 			var a = this.key_equals_value();
 			for (
-				this.entries[this.currentEntry][a[0]] = a[1];
+				this.es[this.currentEntry][a[0]] = a[1];
 				this.tryMatch(",") && (this.match(","), !this.tryMatch("}"));
 
 			)
 				(a = this.key_equals_value()),
-					(this.entries[this.currentEntry][a[0]] = a[1]);
+					(this.es[this.currentEntry][a[0]] = a[1]);
 		}),
 		(this.entry_body = function () {
 			(this.currentEntry = this.key()),
-				(this.entries[this.currentEntry] = new Object()),
+				(this.es[this.currentEntry] = new Object()),
 				this.match(","),
 				this.key_value_list(),
-				(this.entries[this.currentEntry].EKEY = this.currentEntry),
-				void 0 != this.entries[this.currentEntry].DOI &&
-					(this.entries[this.currentEntry].URL =
-						"http://dx.doi.org/" + this.entries[this.currentEntry].DOI);
+				(this.es[this.currentEntry].EKEY = this.currentEntry);
 		}),
 		(this.directive = function () {
 			return this.match("@"), "@" + this.key();
@@ -171,122 +163,99 @@ function BibtexParser() {
 		});
 }
 
-function bibtex() {
+bibtex = function () {
+	function if_has_a(fld, innerH, hRf, pre = "[", pst = "]") {
+		if (Object.hasOwn(c.es[ff], fld)) {
+			if (pre) yDiv.innerHTML += pre;
+			var tSpan = document.createElement("a");
+			tSpan.className = "btn";
+			tSpan.innerHTML = innerH;
+			if (hRf) tSpan.setAttribute("href", hRf);
+			yDiv.appendChild(tSpan);
+			if (pst) yDiv.innerHTML += pst;
+		}
+	}
 	var bib = document.getElementById("bibtex_input");
 	var a = bib.innerHTML;
 	bib.remove();
 	var bibct = document.getElementById("bt");
 	var c = new BibtexParser();
 	c.setInput(a), c.btex();
-	for (var ff in c.entries) {
+	for (var ff in c.es) {
 		var yDiv = document.createElement("p");
 		yDiv.className = "be";
-		if (Object.hasOwn(c.entries[ff], "Y")) {
+		if (Object.hasOwn(c.es[ff], "Y")) {
 			var ySpan = document.createElement("span");
-			ySpan.className = "y";
-			ySpan.innerHTML = c.entries[ff].Y;
+			(ySpan.className = "y"), (ySpan.innerHTML = c.es[ff].Y);
 			yDiv.appendChild(ySpan);
 		} else {
-			if (Object.hasOwn(c.entries[ff], "TITLE")) {
+			if (Object.hasOwn(c.es[ff], "TITLE")) {
 				var tSpan = document.createElement("a");
 				tSpan.className = "url";
-				if (Object.hasOwn(c.entries[ff], "URL"))
-					tSpan.setAttribute("href", c.entries[ff].URL);
-				tSpan.innerHTML = c.entries[ff].TITLE;
+				if (Object.hasOwn(c.es[ff], "DOI"))
+					tSpan.setAttribute("href", "http://dx.doi.org/" + c.es[ff].DOI);
+				tSpan.innerHTML = c.es[ff].TITLE;
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += ", ";
 			}
-			if (Object.hasOwn(c.entries[ff], "AUTHOR"))
-				yDiv.innerHTML += c.entries[ff].AUTHOR + ", ";
-			if (Object.hasOwn(c.entries[ff], "BOOKTITLE")) {
+			if (Object.hasOwn(c.es[ff], "AUTHOR"))
+				yDiv.innerHTML += c.es[ff].AUTHOR + ", ";
+			if (Object.hasOwn(c.es[ff], "BOOKTITLE")) {
 				yDiv.innerHTML += "In ";
 				var tSpan = document.createElement("a");
 				tSpan.className = "ttl";
-				tSpan.innerHTML = c.entries[ff].BOOKTITLE;
-				if (Object.hasOwn(c.entries[ff], "BOOKURL"))
-					tSpan.setAttribute("href", c.entries[ff].BOOKURL);
+				tSpan.innerHTML = c.es[ff].BOOKTITLE;
+				if (Object.hasOwn(c.es[ff], "BOOKURL"))
+					tSpan.setAttribute("href", c.es[ff].BOOKURL);
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += ", ";
 			}
-			if (Object.hasOwn(c.entries[ff], "JOURNAL")) {
+			if (Object.hasOwn(c.es[ff], "JOURNAL")) {
 				yDiv.innerHTML += "In ";
 				var tSpan = document.createElement("a");
-				tSpan.className = "ttl";
-				tSpan.innerHTML = c.entries[ff].JOURNAL;
-				if (Object.hasOwn(c.entries[ff], "JOURNALURL"))
-					tSpan.setAttribute("href", c.entries[ff].JOURNALURL);
+				(tSpan.className = "ttl"), (tSpan.innerHTML = c.es[ff].JOURNAL);
+				if (Object.hasOwn(c.es[ff], "JOURNALURL"))
+					tSpan.setAttribute("href", c.es[ff].JOURNALURL);
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += ", ";
 			}
-			if (Object.hasOwn(c.entries[ff], "VOLUME")) {
-				yDiv.innerHTML += "vol." + c.entries[ff].VOLUME;
-				if (Object.hasOwn(c.entries[ff], "NUMBER"))
-					yDiv.innerHTML += "(" + c.entries[ff].NUMBER + ")";
+			if (Object.hasOwn(c.es[ff], "VOLUME")) {
+				yDiv.innerHTML += "vol." + c.es[ff].VOLUME;
+				if (Object.hasOwn(c.es[ff], "NUMBER"))
+					yDiv.innerHTML += "(" + c.es[ff].NUMBER + ")";
 				else yDiv.innerHTML += ", ";
 			}
-			if (Object.hasOwn(c.entries[ff], "ARCHIVEPREFIX"))
-				yDiv.innerHTML += c.entries[ff].ARCHIVEPREFIX + " ";
-			if (Object.hasOwn(c.entries[ff], "EPRINT"))
-				yDiv.innerHTML += c.entries[ff].EPRINT + ", ";
-			if (Object.hasOwn(c.entries[ff], "PAGES"))
-				yDiv.innerHTML += "p." + c.entries[ff].PAGES + ", ";
-			if (Object.hasOwn(c.entries[ff], "YEAR"))
-				yDiv.innerHTML += c.entries[ff].YEAR + ". ";
-			if (Object.hasOwn(c.entries[ff], "ABSTRACT")) {
+			if (Object.hasOwn(c.es[ff], "ARCHIVEPREFIX"))
+				yDiv.innerHTML += c.es[ff].ARCHIVEPREFIX + " ";
+			if (Object.hasOwn(c.es[ff], "EPRINT"))
+				yDiv.innerHTML += c.es[ff].EPRINT + ", ";
+			if (Object.hasOwn(c.es[ff], "PAGES"))
+				yDiv.innerHTML += "p." + c.es[ff].PAGES + ", ";
+			if (Object.hasOwn(c.es[ff], "YEAR"))
+				yDiv.innerHTML += c.es[ff].YEAR + ". ";
+			if (Object.hasOwn(c.es[ff], "ABSTRACT")) {
 				yDiv.innerHTML += "[";
 				var tSpan = document.createElement("a");
-				tSpan.className = "abs";
-				tSpan.innerHTML = "abstract";
+				(tSpan.className = "abs"), (tSpan.innerHTML = "abstract");
 				var ttip = document.createElement("span"),
 					abs = document.createElement("span");
 				ttip.className = "ttip";
-				abs.className = "abstract";
-				abs.innerHTML = c.entries[ff].ABSTRACT;
+				(abs.className = "abstract"), (abs.innerHTML = c.es[ff].ABSTRACT);
 				ttip.appendChild(abs);
 				tSpan.appendChild(ttip);
 				yDiv.appendChild(tSpan);
 				yDiv.innerHTML += "]";
 			}
-			if (Object.hasOwn(c.entries[ff], "EKEY")) {
-				yDiv.innerHTML += "[";
+			if_has_a("EKEY", "pdf", pdfLoc + c.es[ff].EKEY.toLowerCase() + ".pdf");
+			if_has_a("TITLE", "scholar", gscholarLoc + c.es[ff].TITLE);
+			if_has_a("DOI", "bibtex", doiLoc + c.es[ff].DOI + doiLoc2);
+			if (Object.hasOwn(c.es[ff], "NOTE")) {
+				yDiv.innerHTML += " ";
 				var tSpan = document.createElement("a");
-				tSpan.className = "btn";
-				tSpan.innerHTML = "pdf";
-				tSpan.setAttribute(
-					"href",
-					pdfLoc + c.entries[ff].EKEY.toLowerCase() + ".pdf",
-				);
-				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "]";
-			}
-			if (Object.hasOwn(c.entries[ff], "TITLE")) {
-				yDiv.innerHTML += "[";
-				var tSpan = document.createElement("a");
-				tSpan.className = "btn";
-				tSpan.innerHTML = "scholar";
-				tSpan.setAttribute("href", gscholarLoc + c.entries[ff].TITLE);
-				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "]";
-			}
-			if (Object.hasOwn(c.entries[ff], "DOI")) {
-				yDiv.innerHTML += "[";
-				var tSpan = document.createElement("a");
-				tSpan.className = "btn";
-				tSpan.innerHTML = "bibtex";
-				tSpan.setAttribute(
-					"href",
-					doiLoc + c.entries[ff].DOI + "/transform/application/x-bibtex",
-				);
-				yDiv.appendChild(tSpan);
-				yDiv.innerHTML += "]";
-			}
-			if (Object.hasOwn(c.entries[ff], "NOTE")) {
-				var tSpan = document.createElement("a");
-				tSpan.className = "note";
-				tSpan.innerHTML = c.entries[ff].NOTE;
+				(tSpan.className = "note"), (tSpan.innerHTML = c.es[ff].NOTE);
 				yDiv.appendChild(tSpan);
 			}
 		}
 		bibct.appendChild(yDiv);
 	}
-}
+};
