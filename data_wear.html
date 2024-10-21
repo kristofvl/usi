@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="usi.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+	</head>
+	<body>
+		<div id="hdr"></div>
+		<script async src="hdr.js" strng="WEAR"></script>
+
+		<div id="usi_page">
+			<h3>
+				WEAR<br />
+				Marius Bock, Hilde Kuehne, Kristof Van Laerhoven, Michael Moeller
+			</h3>
+
+			<h3>Description</h3>
+			<img
+				src="https://mariusbock.github.io/wear/static/images/banner.png"
+				width="520px"
+				align="right"
+				style="margin-left: 12px; margin-bottom: 4px"
+			/>
+
+			<p>
+				Research has shown the complementarity of camera- and inertial-based
+				data for modeling human activities, yet datasets with both egocentric
+				video and inertial-based sensor data remain scarce. In this paper, we
+				introduce WEAR, an outdoor sports dataset for both vision- and
+				inertial-based human activity recognition (HAR). Data from 22
+				participants performing a total of 18 different workout activities was
+				collected with synchronized inertial (acceleration) and camera
+				(egocentric video) data recorded at 11 different outside locations. WEAR
+				provides a challenging prediction scenario in changing outdoor
+				environments using a sensor placement, in line with recent trends in
+				real-world applications. Benchmark results show that through our sensor
+				placement, each modality interestingly offers complementary strengths
+				and weaknesses in their prediction performance. Further, in light of the
+				recent success of single-stage Temporal Action Localization (TAL)
+				models, we demonstrate their versatility of not only being trained using
+				visual data, but also using raw inertial data and being capable to fuse
+				both modalities by means of simple concatenation. The dataset and code
+				to reproduce experiments is publicly available via:
+				<a href="https://mariusbock.github.io/wear"
+					>mariusbock.github.io/wear/</a
+				>
+			</p>
+
+			<h3>Download</h3>
+			<p>
+				The full dataset can be downloaded via the
+				<a href="https://mariusbock.github.io/wear">
+					[WEAR datasetpage]</a
+				> and <a href="https://uni-siegen.sciebo.de/s/enHPo7HwP8RccAe">[here]</a>.
+				The download folder is divided into 3 subdirectories: <ul> <li>annotations (>
+				1MB): JSON-files containing annotations per-subject using the
+				THUMOS14-style</li><li>(2) processed (15GB): precomputed I3D, inertial and
+				combined per-subject features,</li><li>(3) raw (130GB): Raw, per-subject video
+				and inertial data.</li></ul><br/>Please follow instructions mentioned in the README.md
+				file in the data creation subfolder.
+			</p>
+
+			<h3>Citation</h3>
+			<p>
+				<a href="http://dx.doi.org/10.1145/3699776"
+					>WEAR: An Outdoor Sports for Wearable and Egocentric Activity
+					Recognition. Bock, Marius and Kuehne, Hilde and Van Laerhoven, Kristof
+					and Moeller, Michael. In Proc. ACM Interact. Mob. Wearable Ubiquitous Technol. (IMWUT), vol.8(4), ACM Press, 2024.
+				</a>
+			</p>
+
+			<h3>Disclaimer</h3>
+			<p>
+				WEAR is offered under a Creative Commons
+				Attribution-NonCommercial-ShareAlike 4.0 International License. You are
+				free to use, copy, and redistribute the material for non-commercial
+				purposes provided you give appropriate credit, provide a link to the
+				license, and indicate if changes were made. If you remix, transform, or
+				build upon the material, you must distribute your contributions under
+				the same license as the original. You may not use the material for
+				commercial purposes.
+			</p>
+		</div>
+		<div id="usi_ftr"></div>
+	</body>
+</html>
