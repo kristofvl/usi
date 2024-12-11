@@ -227,6 +227,11 @@ polygon {
 	max-width: 640px;
 	padding: 7px;
 }
+#home_rightdown {
+	width: 250px;
+	height: 70ps;
+	float: right;
+}
 
 #map {
 	min-height: calc(100vh - 200px);
