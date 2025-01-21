@@ -228,9 +228,12 @@ polygon {
 	padding: 7px;
 }
 #home_rightdown {
-	width: 250px;
-	height: 70ps;
+	width: 350px;
+	height: 52px;
 	float: right;
+}
+#home_rightdown a {
+	margin-left: 20px;
 }
 
 #map {
