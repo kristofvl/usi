@@ -4,14 +4,58 @@
 
 @ARTICLE{ubi_access25,
 	author={Nahshon Mokua Obiri and Kristof Van Laerhoven},
-	journal={IEEE Access}, 
-	title={A Comprehensive Data Description for LoRaWAN Path Loss Measurements in an Indoor Office Setting: Effects of Environmental Factors}, 
+	journal={IEEE Access},
+	title={A Comprehensive Data Description for LoRaWAN Path Loss Measurements in an Indoor Office Setting: Effects of Environmental Factors},
 	year={2025},
 	volume={13},
 	number={},
 	pages={83148-83170},
 	doi={10.1109/ACCESS.2025.3569164},
 	abstract={This paper presents a comprehensive dataset of LoRaWAN technology path loss measurements collected in an indoor office environment, focusing on quantifying the effects of environmental factors on signal propagation. Utilizing a network of six strategically placed LoRaWAN end devices (EDs) and a single indoor gateway (GW) at the University of Siegen’s Hölderlinstraße Campus in the City of Siegen, Germany, we systematically measured signal strength indicators such as the Received Signal Strength Indicator (RSSI) and the Signal-to-Noise Ratio (SNR) under various environmental conditions, including temperature, relative humidity, carbon dioxide (CO2) concentration, barometric pressure, and particulate matter levels (PM2.5). Our empirical analysis confirms that transient phenomena such as reflections, scattering, interference, occupancy patterns (induced by environmental parameter variations), and furniture rearrangements can alter signal attenuation by as much as 10.58 dB, highlighting the dynamic nature of indoor propagation. As an example of how this dataset can be utilized, we tested and evaluated a refined Log-Distance Path Loss and Shadowing Model that integrates both structural obstructions (Multiple Walls) and Environmental Parameters (LDPLSM-MW-EP). Compared to a baseline model that considers only Multiple Walls (LDPLSMMW), the enhanced approach reduced the root mean square error (RMSE) from 10.58 dB to 8.04 dB and increased the coefficient of determination (R2) from 0.6917 to 0.8222. By capturing the extra effects of environmental conditions and occupancy dynamics, this improved model provides valuable insights for optimizing power usage and prolonging device battery life, enhancing network reliability in indoor Internet of Things (IoT) deployments, among other applications. The dataset, accessible upon reasonable request, offers a solid foundation for future research and development in indoor wireless communication.},
+}
+
+@article{ubi_arxiv2025f,
+	title={Eye-tracking-Driven Shared Control for Robotic Arms: Wizard of Oz Studies to Assess Design Choices},
+	author={Anke Fischer-Janzen and Thomas M Wendt and Daniel Görlich and Kristof Van Laerhoven},
+	year={2025},
+	eprint={2505.23147},
+	archivePrefix={arXiv},
+	url={https://arxiv.org/abs/2505.23147},
+	doi={10.48550/arXiv.2505.23147},
+	abstract={Advances in eye-tracking control for assistive robotic arms provide intuitive interaction opportunities for people with physical disabilities. Shared control has gained interest in recent years by improving user satisfaction through partial automation of robot control. We present an eye-tracking-guided shared control design based on insights from state-of-the-art literature. A Wizard of Oz setup was used in which automation was simulated by an experimenter to evaluate the concept without requiring full implementation. This approach allowed for rapid exploration of user needs and expectations to inform future iterations. Two studies were conducted to assess user experience, identify design challenges, and find improvements to ensure usability and accessibility. The first study involved people with disabilities by providing a survey, and the second study used the Wizard of Oz design in person to gain technical insights, leading to a comprehensive picture of findings.}
+}
+
+@article{ubi_arxiv2025e,
+	title={DeepConvContext: A Multi-Scale Approach to Timeseries Classification in Human Activity Recognition},
+	author={Marius Bock and Michael Moeller and Kristof Van Laerhoven},
+	year={2025},
+	eprint={2505.20894},
+	archivePrefix={arXiv},
+	url={https://arxiv.org/abs/2505.20894},
+	doi={10.48550/arXiv.2505.20894},
+	abstract={Despite recognized limitations in modeling long-range temporal dependencies, Human Activity Recognition (HAR) has traditionally relied on a sliding window approach to segment labeled datasets. Deep learning models like the DeepConvLSTM typically classify each window independently, thereby restricting learnable temporal context to within-window information. To address this constraint, we propose DeepConvContext, a multi-scale time series classification framework for HAR. Drawing inspiration from the vision-based Temporal Action Localization community, DeepConvContext models both intra- and inter-window temporal patterns by processing sequences of time-ordered windows. Unlike recent HAR models that incorporate attention mechanisms, DeepConvContext relies solely on LSTMs -- with ablation studies demonstrating the superior performance of LSTMs over attention-based variants for modeling inertial sensor data. Across six widely-used HAR benchmarks, DeepConvContext achieves an average 10% improvement in F1-score over the classic DeepConvLSTM, with gains of up to 21%. Code to reproduce our experiments is publicly available via github.com/mariusbock/context_har.}
+}
+
+@article{ubi_arxiv2025d,
+	title={Label Leakage in Federated Inertial-based Human Activity Recognition},
+	author={Marius Bock and Maximillian Hopp and Kristof Van Laerhoven and Michael Moeller},
+	year={2025},
+	eprint={2505.20924},
+	archivePrefix={arXiv},
+	url={https://arxiv.org/abs/2505.20924},
+	doi={10.48550/arXiv.2505.20924},
+	abstract={While prior work has shown that Federated Learning updates can leak sensitive information, label reconstruction attacks, which aim to recover input labels from shared gradients, have not yet been examined in the context of Human Activity Recognition (HAR). Given the sensitive nature of activity labels, this study evaluates the effectiveness of state-of-the-art gradient-based label leakage attacks on HAR benchmark datasets. Our findings show that the number of activity classes, sampling strategy, and class imbalance are critical factors influencing the extent of label leakage, with reconstruction accuracies reaching up to 90% on two benchmark datasets, even for trained models. Moreover, we find that Local Differential Privacy techniques such as gradient noise and clipping offer only limited protection, as certain attacks still reliably infer both majority and minority class labels. We conclude by offering practical recommendations for the privacy-aware deployment of federated HAR systems and identify open challenges for future research. Code to reproduce our experiments is publicly available via github.com/mariusbock/leakage_har.}
+}
+
+@article{ubi_arxiv2025c,
+	title={Enhancing Wearable Tap Water Audio Detection through Subclass Annotation in the HD-Epic Dataset},
+	author={Robin Burchard and Kristof Van Laerhoven},
+	year={2025},
+	eprint={2505.20788},
+	archivePrefix={arXiv},
+	url={https://arxiv.org/abs/2505.20788},
+	doi={10.48550/arXiv.2505.20788},
+	abstract={Wearable human activity recognition has been shown to benefit from the inclusion of acoustic data, as the sounds around a person often contain valuable context. However, due to privacy concerns, it is usually not ethically feasible to record and save microphone data from the device, since the audio could, for instance, also contain private conversations. Rather, the data should be processed locally, which in turn requires processing power and consumes energy on the wearable device. One special use case of contextual information that can be utilized to augment special tasks in human activity recognition is water flow detection, which can, e.g., be used to aid wearable hand washing detection. We created a new label called tap water for the recently released HD-Epic data set, creating 717 hand-labeled annotations of tap water flow, based on existing annotations of the water class. We analyzed the relation of tap water and water in the dataset and additionally trained and evaluated two lightweight classifiers to evaluate the newly added label class, showing that the new class can be learned more easily.}
 }
 
 @article{ubi_at2025,
