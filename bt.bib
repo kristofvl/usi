@@ -2,6 +2,35 @@
 	y = 2025
 }
 
+@inproceedings{ubi_ubiws25a,
+	author = {Robin Burchard and Kristof Van Laerhoven},
+	title = {Enhancing Wearable Tap Water Audio Detection Through
+Subclass Annotation in the HD-Epic Dataset},
+	year = 2025,
+	doi = {10.1145/3714394.3756153},
+	booktitle = {UbiComp Companion ’25, Espoo, Finland},
+	publisher = {ACM},
+	abstract = {Wearable human activity recognition has been shown to benefit
+from the inclusion of acoustic data, as the sounds around a person
+often contain valuable context. However, due to privacy concerns, it
+is usually not ethically feasible to record and save microphone data
+from the device, since the audio could, for instance, also contain
+private conversations. Rather, the data should be processed locally,
+which in turn requires processing power and consumes energy on
+the wearable device. One special use case of contextual information
+that can be utilized to augment special tasks in human activity
+recognition is water flow detection, which can, e.g., be used to aid
+wearable hand washing detection. We created a new label called tap
+water for the recently released HD-Epic data set, creating 717 hand-
+labeled annotations of tap water flow, based on existing annotations
+of the water class. We analyzed the relation of tap water and water in
+the dataset and additionally trained and evaluated two lightweight
+classifiers to evaluate the newly added label class, showing that the
+new class can be learned more easily.}
+}
+
+
+
 @inproceedings{ubi_muc25a,
 	author = {Pöhler, Jonas and Vitt, Antonia and Flegel, Nadine and Mentler, Tilo and Van Laerhoven, Kristof},
 	title = {Framework for Multimodal Cognitive Load Analysis in Safety-Critical Systems: An ATC Simulation Case Study},
@@ -68,26 +97,33 @@
 	abstract={Despite recognized limitations in modeling long-range temporal dependencies, Human Activity Recognition (HAR) has traditionally relied on a sliding window approach to segment labeled datasets. Deep learning models like the DeepConvLSTM typically classify each window independently, thereby restricting learnable temporal context to within-window information. To address this constraint, we propose DeepConvContext, a multi-scale time series classification framework for HAR. Drawing inspiration from the vision-based Temporal Action Localization community, DeepConvContext models both intra- and inter-window temporal patterns by processing sequences of time-ordered windows. Unlike recent HAR models that incorporate attention mechanisms, DeepConvContext relies solely on LSTMs -- with ablation studies demonstrating the superior performance of LSTMs over attention-based variants for modeling inertial sensor data. Across six widely-used HAR benchmarks, DeepConvContext achieves an average 10% improvement in F1-score over the classic DeepConvLSTM, with gains of up to 21%. Code to reproduce our experiments is publicly available via github.com/mariusbock/context_har.}
 }
 
-@article{ubi_arxiv2025d,
+@inproceedings{ubi_iswc25,
 	title={Label Leakage in Federated Inertial-based Human Activity Recognition},
 	author={Marius Bock and Maximillian Hopp and Kristof Van Laerhoven and Michael Moeller},
 	year={2025},
-	eprint={2505.20924},
-	archivePrefix={arXiv},
-	url={https://arxiv.org/abs/2505.20924},
-	doi={10.48550/arXiv.2505.20924},
-	abstract={While prior work has shown that Federated Learning updates can leak sensitive information, label reconstruction attacks, which aim to recover input labels from shared gradients, have not yet been examined in the context of Human Activity Recognition (HAR). Given the sensitive nature of activity labels, this study evaluates the effectiveness of state-of-the-art gradient-based label leakage attacks on HAR benchmark datasets. Our findings show that the number of activity classes, sampling strategy, and class imbalance are critical factors influencing the extent of label leakage, with reconstruction accuracies reaching up to 90% on two benchmark datasets, even for trained models. Moreover, we find that Local Differential Privacy techniques such as gradient noise and clipping offer only limited protection, as certain attacks still reliably infer both majority and minority class labels. We conclude by offering practical recommendations for the privacy-aware deployment of federated HAR systems and identify open challenges for future research. Code to reproduce our experiments is publicly available via github.com/mariusbock/leakage_har.}
-}
-
-@article{ubi_arxiv2025c,
-	title={Enhancing Wearable Tap Water Audio Detection through Subclass Annotation in the HD-Epic Dataset},
-	author={Robin Burchard and Kristof Van Laerhoven},
-	year={2025},
-	eprint={2505.20788},
-	archivePrefix={arXiv},
-	url={https://arxiv.org/abs/2505.20788},
-	doi={10.48550/arXiv.2505.20788},
-	abstract={Wearable human activity recognition has been shown to benefit from the inclusion of acoustic data, as the sounds around a person often contain valuable context. However, due to privacy concerns, it is usually not ethically feasible to record and save microphone data from the device, since the audio could, for instance, also contain private conversations. Rather, the data should be processed locally, which in turn requires processing power and consumes energy on the wearable device. One special use case of contextual information that can be utilized to augment special tasks in human activity recognition is water flow detection, which can, e.g., be used to aid wearable hand washing detection. We created a new label called tap water for the recently released HD-Epic data set, creating 717 hand-labeled annotations of tap water flow, based on existing annotations of the water class. We analyzed the relation of tap water and water in the dataset and additionally trained and evaluated two lightweight classifiers to evaluate the newly added label class, showing that the new class can be learned more easily.}
+	doi={10.1145/3715071.3750413},
+	isbn={979-8-4007-1481-8/2025/10},
+	booktitle = {Proceedings of the 2025 ACM International Symposium on
+Wearable Computers (ISWC '25), October 12--16, 2025, Espoo,
+Finland},
+	abstract={While prior work has shown that Federated Learning updates can
+leak sensitive information, label reconstruction attacks, which aim
+to recover input labels from shared gradients, have not yet been
+examined in the context of Human Activity Recognition (HAR).
+Given the sensitive nature of activity labels, this study evaluates
+the effectiveness of state-of-the-art gradient-based label leakage
+attacks on HAR benchmark datasets. Our findings show that the
+number of activity classes, sampling strategy, and class imbalance
+are critical factors influencing the extent of label leakage, with
+reconstruction accuracies reaching well-above 90% on two bench-
+mark datasets, even for trained models. Moreover, we find that
+Local Differential Privacy techniques such as gradient noise and
+clipping offer only limited protection, as certain attacks still reliably
+infer both majority and minority class labels. We conclude by offer-
+ing practical recommendations for the privacy-aware deployment
+of federated HAR systems and identify open challenges for future
+research. Code to reproduce our experiments is publicly available
+via github.com/mariusbock/leakage_har.}
 }
 
 @article{ubi_at2025,
