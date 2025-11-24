@@ -177,33 +177,14 @@ Subclass Annotation in the HD-Epic Dataset},
 	abstract={Despite recognized limitations in modeling long-range temporal dependencies, Human Activity Recognition (HAR) has traditionally relied on a sliding window approach to segment labeled datasets. Deep learning models like the DeepConvLSTM typically classify each window independently, thereby restricting learnable temporal context to within-window information. To address this constraint, we propose DeepConvContext, a multi-scale time series classification framework for HAR. Drawing inspiration from the vision-based Temporal Action Localization community, DeepConvContext models both intra- and inter-window temporal patterns by processing sequences of time-ordered windows. Unlike recent HAR models that incorporate attention mechanisms, DeepConvContext relies solely on LSTMs -- with ablation studies demonstrating the superior performance of LSTMs over attention-based variants for modeling inertial sensor data. Across six widely-used HAR benchmarks, DeepConvContext achieves an average 10% improvement in F1-score over the classic DeepConvLSTM, with gains of up to 21%. Code to reproduce our experiments is publicly available via github.com/mariusbock/context_har.}
 }
 
-@inproceedings{ubi_iswc25,
-	title={Label Leakage in Federated Inertial-based Human Activity Recognition},
-	author={Marius Bock and Maximillian Hopp and Kristof Van Laerhoven and Michael Moeller},
+@inproceedings{ubi_dagm25,
+	title={γ-Quant: Towards Learnable Quantization for Low-bit Pattern Recognition},
+	author={Mishal Fatima and Shashank Agnihotri and Marius Bock and Kanchana Vaishnavi Gandikota and Kristof Van Laerhoven and Michael Moeller and Margret Keuper},
 	year={2025},
-	doi={10.1145/3715071.3750413},
-	isbn={979-8-4007-1481-8/2025/10},
-	booktitle = {Proceedings of the 2025 ACM International Symposium on
-Wearable Computers (ISWC '25), October 12--16, 2025, Espoo,
-Finland},
-	abstract={While prior work has shown that Federated Learning updates can
-leak sensitive information, label reconstruction attacks, which aim
-to recover input labels from shared gradients, have not yet been
-examined in the context of Human Activity Recognition (HAR).
-Given the sensitive nature of activity labels, this study evaluates
-the effectiveness of state-of-the-art gradient-based label leakage
-attacks on HAR benchmark datasets. Our findings show that the
-number of activity classes, sampling strategy, and class imbalance
-are critical factors influencing the extent of label leakage, with
-reconstruction accuracies reaching well-above 90% on two bench-
-mark datasets, even for trained models. Moreover, we find that
-Local Differential Privacy techniques such as gradient noise and
-clipping offer only limited protection, as certain attacks still reliably
-infer both majority and minority class labels. We conclude by offer-
-ing practical recommendations for the privacy-aware deployment
-of federated HAR systems and identify open challenges for future
-research. Code to reproduce our experiments is publicly available
-via github.com/mariusbock/leakage_har.}
+	doi={},
+	isbn={},
+	booktitle = {DAGM German Conference on Pattern Recognition},
+	abstract={Most pattern recognition models are developed on pre-proce\-ssed data. In computer vision, for instance, RGB images processed through image signal processing (ISP) pipelines designed to cater to human perception are the most frequent input to image analysis networks. However, many modern vision tasks operate without a human in the loop, raising the question of whether such pre-processing is optimal for automated analysis. Similarly, human activity recognition (HAR) on body-worn sensor data commonly takes normalized floating-point data arising from a high-bit analog-to-digital converter (ADC) as an input, despite such an approach being highly inefficient in terms of data transmission, significantly affecting the battery life of wearable devices. In this work, we target low-bandwidth and energy-constrained settings where sensors are limited to low-bit-depth capture. We propose γ-Quant, ie~ the task-specific learning of a non-linear quantization for pattern recognition. We exemplify our approach on raw-image object detection as well as HAR of wearable data, and demonstrate that raw data with a learnable quantization using as few as 4-bits can perform on par with the use of raw 12-bit data. All code to reproduce our experiments is publicly available via https://github. com/Mishalfatima/Gamma-Quant}
 }
 
 @article{ubi_at2025,
