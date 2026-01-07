@@ -1,7 +1,52 @@
+
+@y{y26,
+	y = 2026
+}
+
+@article{ubi_dagm26,
+	title={γ-Quant: Towards Learnable Quantization for Low-bit Pattern Recognition},
+	author={Mishal Fatima and Shashank Agnihotri and Marius Bock and Kanchana Vaishnavi Gandikota and Kristof Van Laerhoven and Michael Moeller and Margret Keuper},
+	year={2026},
+	doi={10.1007/978-3-032-12840-9_5},
+	isbn={978-3-032-12840-9},
+	booktitle = {DAGM German Conference on Pattern Recognition (GCPR), LNCS 16125},
+	pages={57-72},publisher={Springer Nature Switzerland},
+	isbn={9783032128409},
+	abstract={Most pattern recognition models are developed on pre-processed data. In computer vision, for instance, RGB images processed through image signal processing (ISP) pipelines designed to cater to human perception are the most frequent input to image analysis networks. However, many modern vision tasks operate without a human in the loop, raising the question of whether such pre-processing is optimal for automated analysis. Similarly, human activity recognition (HAR) on body-worn sensor data commonly takes normalized floating-point data arising from a high-bit analog-to-digital converter (ADC) as an input, despite such an approach being highly inefficient in terms of data transmission, significantly affecting the battery life of wearable devices. In this work, we target low-bandwidth and energy-constrained settings where sensors are limited to low-bit-depth capture. We propose γ-Quant, i.e. the task-specific learning of a non-linear quantization for pattern recognition. We exemplify our approach on raw-image object detection as well as HAR of wearable data, and demonstrate that raw data with a learnable quantization using as few as 4-bits can perform on par with the use of raw 12-bit data. All code to reproduce our experiments is publicly available via https://github.com/Mishalfatima/Gamma-Quant}
+}
+
+@article{ubi_iwoar26a,
+	doi={10.1007/978-3-032-13312-0_15},
+	author={Poehler, Jonas and Laumann, Dimitri and Van Laerhoven, Kristof},
+	title={Real-Time ECG and HRV Monitoring in Handball Using a Low-Cost Wearable Sensor},
+	booktitle={Sensor-Based Activity Recognition and Artificial Intelligence},year=2026,
+	publisher={Springer Nature Switzerland},pages={250--260},
+	abstract={The proliferation of wearable technology has revolutionized sports science, providing detailed insights into athlete performance and physical condition. However, the use of ECG in dynamic, high-contact sports like handball presents significant challenges. This paper introduces HeartTrack, an open-source wearable electrocardiogram (ECG) monitoring system designed specifically for monitoring athlete exertion in real-world sporting conditions. The system employs a distributed architecture based on the Message Queuing Telemetry Transport (MQTT) protocol for robust and decoupled data handling. Firstly, the system provides a real-time dashboard for the immediate visualization of the incoming ECG waveform alongside the calculated physiological parameters. Secondly, we report on a system validation study conducted during a handball training session, demonstrating the system's capability to quantify significant changes in cardiovascular metrics corresponding to player exertion. The key findings confirmed that the system could effectively track significant changes in heart rate and heart rate variability that correspond directly to varying levels of physical exertional activity. The system design and software is shared at: hearttrack.cloud.},
+	isbn={978-3-032-13312-0}
+}
+@article{ubi_iwoar26b,
+	doi={10.1007/978-3-032-13312-0_18},
+	author={Robin Burchard and Hurriat Ali and Kristof Van Laerhoven},
+	title={Improved Strategies for Multi-modal Atmospheric Sensing to Augment Wearable IMU-Based Hand Washing Detection},
+	booktitle={Sensor-Based Activity Recognition and Artificial Intelligence},year=2026,
+	publisher={Springer Nature Switzerland},pages={308--323},
+	abstract={Previous work in the area of hand washing detection has hinted at the usefulness of atmospheric sensors for hand washing detection. Specifically, a humidity sensor can be used to measure nearby tap water flow using wearable devices. For this work, we expand on previous findings and a pre-existing dataset by recording 10 additional participants with a self-made open-source prototype recording device. We introduce an updated dataset with 20 participants instead of 10 participants, for which we make available IMU, humidity, temperature, and pressure measurements. The newly recorded participants conducted more complex background activities, which increased our dataset's real-world relevance. Additionally, we show how to train an optimized deep-learning-based classifier on different parts of the combined dataset, improving on the previous study's results, achieving significantly better F1 scores (82% instead of 70%) on the pre-existing dataset. Furthermore, by leveraging a BIO-BANK semi-supervised pretrained model, we show that, unlike in previous work, the addition of humidity sensors to IMU data has a positive impact on the classification performance on the old and the new dataset, improving the F1-score on the combined dataset from 60% to 68%. All code and data are publicly available on GitHub.},
+	isbn={978-3-032-13312-0}
+}
+
+@article{ubi_srai26,
+  title={SRWToolkit: An Open Source Wizard of Oz Toolkit to Create Social Robotic Avatars},
+  author={Atikkhan Faridkhan Nilgar and Kristof Van Laerhoven and Ayub Kinoti},
+	booktitle={Social Robotics + AI},year=2026, publisher={Springer Nature Singapore}, pages={547--553},
+	abstract={We present SRWToolkit, an open-source Wizard of Oz toolkit designed to facilitate the rapid prototyping of social robotic avatars powered by local large language models (LLMs). Our web-based toolkit enables multimodal interaction through text input, button-activated speech, and wake-word command. The toolkit offers real-time configuration of avatar appearance, behavior, language, and voice via an intuitive control panel. In contrast to prior works that rely on cloud-based LLMs services, SRWToolkit emphasizes modularity and ensures on-device functionality through local LLM inference. In our small-scale user study, [n = 11] participants created and interacted with diverse robotic roles (hospital receptionist, mathematics teacher, and driving assistant), which demonstrated positive outcomes in the toolkit's usability, trust, and user experience. The toolkit enables rapid and efficient development of robot characters customized to researchers' needs, supporting scalable research in human-robot interaction.},
+	isbn={978-981-95-2382-5}, doi={10.1007/978-981-95-2382-5_40}
+}
+
+
+
 @y{y25,
 	y = 2025
 }
-
 @inproceedings{ubi_iswc25a,
 author = {Bock, Marius and Hopp, Maximilian and Van Laerhoven, Kristof and Moeller, Michael},
 title = {Label Leakage in Federated Inertial-based Human Activity Recognition},
@@ -225,18 +270,6 @@ series = {ISWC '25}
 	url={https://arxiv.org/abs/2505.20894},
 	doi={10.48550/arXiv.2505.20894},
 	abstract={Despite recognized limitations in modeling long-range temporal dependencies, Human Activity Recognition (HAR) has traditionally relied on a sliding window approach to segment labeled datasets. Deep learning models like the DeepConvLSTM typically classify each window independently, thereby restricting learnable temporal context to within-window information. To address this constraint, we propose DeepConvContext, a multi-scale time series classification framework for HAR. Drawing inspiration from the vision-based Temporal Action Localization community, DeepConvContext models both intra- and inter-window temporal patterns by processing sequences of time-ordered windows. Unlike recent HAR models that incorporate attention mechanisms, DeepConvContext relies solely on LSTMs -- with ablation studies demonstrating the superior performance of LSTMs over attention-based variants for modeling inertial sensor data. Across six widely-used HAR benchmarks, DeepConvContext achieves an average 10% improvement in F1-score over the classic DeepConvLSTM, with gains of up to 21%. Code to reproduce our experiments is publicly available via github.com/mariusbock/context_har.}
-}
-
-@inproceedings{ubi_dagm25,
-	title={γ-Quant: Towards Learnable Quantization for Low-bit Pattern Recognition},
-	author={Mishal Fatima and Shashank Agnihotri and Marius Bock and Kanchana Vaishnavi Gandikota and Kristof Van Laerhoven and Michael Moeller and Margret Keuper},
-	year={2025},
-	doi={10.1007/978-3-032-12840-9_5},
-	isbn={},
-	booktitle = {DAGM German Conference on Pattern Recognition (GCPR), LNCS 16125},
-	pages={57-72},
-	isbn={9783032128409},
-	abstract={Most pattern recognition models are developed on pre-processed data. In computer vision, for instance, RGB images processed through image signal processing (ISP) pipelines designed to cater to human perception are the most frequent input to image analysis networks. However, many modern vision tasks operate without a human in the loop, raising the question of whether such pre-processing is optimal for automated analysis. Similarly, human activity recognition (HAR) on body-worn sensor data commonly takes normalized floating-point data arising from a high-bit analog-to-digital converter (ADC) as an input, despite such an approach being highly inefficient in terms of data transmission, significantly affecting the battery life of wearable devices. In this work, we target low-bandwidth and energy-constrained settings where sensors are limited to low-bit-depth capture. We propose γ-Quant, i.e. the task-specific learning of a non-linear quantization for pattern recognition. We exemplify our approach on raw-image object detection as well as HAR of wearable data, and demonstrate that raw data with a learnable quantization using as few as 4-bits can perform on par with the use of raw 12-bit data. All code to reproduce our experiments is publicly available via https://github.com/Mishalfatima/Gamma-Quant}
 }
 
 @article{ubi_at2025,
