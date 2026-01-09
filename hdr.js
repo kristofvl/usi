@@ -211,17 +211,11 @@ win.addEventListener(
 ftr = doc.getElementById("usi_ftr");
 if (ftr) {
 	ftr.innerHTML = "";
-	if (window.location.href.includes("uni-siegen.de"))
-		ftr.innerHTML =
-			'<a href="https://www.uni-siegen.de/start/kontakt/datenschutzerklaerung.html.en?lang=en" style="color: white;">privacy policy</a>';
-	else if (window.location.href.includes("github"))
-		ftr.innerHTML =
-			'Hosted by <a href="https://github.com" style="color: white;">GitHub</a>';
-	else
-		ftr.innerHTML =
-			'Hosted by <a href="https://codeberg.org" style="color: white;">Codeberg</a>';
-	ftr.innerHTML +=
-		'<span style="float:right;margin-right:7px;">made with <a href="https://codeberg.org/kvl/usi" style="color: white;">usi</a>, ' +
-		Date.now().toString(16) +
-		"</span>";
+	const href = window.location.href;
+	ftr.innerHTML = href.includes("uni-siegen.de")
+		? '<a href="https://www.uni-siegen.de/start/kontakt/datenschutzerklaerung.html.en?lang=en" style="color: white;">privacy policy</a>'
+		: href.includes("github")
+			? 'Hosted by <a href="https://github.com" style="color:white;">GitHub</a>'
+			: 'Hosted by <a href="https://codeberg.org" style="color:white;">Codeberg</a>';
+	ftr.innerHTML += `<span style="float:right;margin-right:7px;">made with <a href="https://codeberg.org/kvl/usi" style="color:white;">usi</a>, ${Date.now().toString(16)}</span>`;
 }
