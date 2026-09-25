@@ -16,9 +16,9 @@ numpages = {},
 location = {Shanghai, China},
 series = {ISWC '26}
 }
-@article{ubi_mucg2026,
+@article{ubi_mucg26,
 author={Sonali Godavarthy and Matthias Neuwirth-Trapp and Tim-Felix Faasch and Maarten Bieshaar and Michael Moeller and Kristof Van Laerhoven and Danda Pani Paudel},
-title={X-{MULTI}: {VLM}-based Imaging Factor Disentanglement for Factor-Aware Image Synthesis},year=2026,
+title={X-MULTI: VLM-based Imaging Factor Disentanglement for Factor-Aware Image Synthesis},year=2026,
 booktitle={2nd Workshop on MUCG: Multimodal Large Language Models for Unified Comprehension and Generation},
 abstract={Imaging factor disentanglement in text-to-image generation aims to independently control image acquisition properties such as types of camera lenses, sensor types, viewpoints, and domains to enable combinatorial generalization. This should let the model synthesize novel factor combinations unobserved in the training data, such as pairing a fisheye lens with an event sensor never observed in training data. Recent work, MULTI, introduced learnable, factor-specific embeddings to disentangle imaging factors, along with the Factor Alignment Accuracy (FAA) metric to evaluate disentanglement quality. We identify and address two independent limitations. First, MULTI's pixel-level reconstruction objective supervises the model only on observed imaging factor combinations, providing no direct training signal for novel combinations. We therefore propose X-MULTI, which uses a pretrained vision-language model (VLM) to supervise novel factor combinations synthesized during training. Second, we show the FAA metric exhibits severe cross-factor correlation leakage, misrepresenting true disentanglement quality. We therefore propose Improved-FAA (I-FAA), which employs factor-specific augmentation strategies to break these correlations and enables more rigorous evaluation. Experiments demonstrate that X-MULTI achieves improved factor alignment on novel combinations compared to MULTI. Moreover, we show that correlation leakage in FAA distorts the evaluation of true factor disentanglement and I-FAA reduces this leakage and therefore provides a more faithful assessment of factor alignment.},
 url={https://openreview.net/forum?id=ZbDxXSSzdL}}
